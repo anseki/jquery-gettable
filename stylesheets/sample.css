@@ -10,6 +10,7 @@ table.sample-a td, table.sample-a th, table.sample-b td, table.sample-b th {
   border: 1px solid #999;
   width: 20px;
   height: 20px;
+  vertical-align: middle;
 }
 table.sample-a th, table.sample-b th {
   background-color: #444;
@@ -18,7 +19,6 @@ table.sample-a th, table.sample-b th {
 }
 
 table.sample-a td, table.sample-a th {
-  vertical-align: middle;
   font-size: 0.8em;
 }
 
