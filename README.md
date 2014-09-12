@@ -1,6 +1,7 @@
 # getTable
 
-The simple jQuery Plugin for easy getting table cells that is positioned on horizontal line, vertical line or both lines that passes through the target cell.  
+The simple jQuery Plugin for easy getting table cells that is positioned on horizontal line, vertical line or both lines that passes through the target cell.
+
 **See <a href="http://anseki.github.io/jquery-gettable">DEMO</a>**
 
 + getTable gets horizontal line (`row`) and vertical line (`col`) of table. And it gets cells that is positioned on those lines. The handling cells that is positioned on horizontal line is supported by `<tr>` HTML tag, but vertical line is not supported by HTML.
@@ -144,6 +145,30 @@ table = target.getTable('table')
 ```
 
 Return a jQuery object that includes zero or more `table` (`<table>`) elements. The `<table>` elements that is included in current target jQuery object, and the `<table>` elements that have `<tr>`, `<td>`, `<th>`, `<thead>`, `<tfoot>` or `<tbody>` elements that is included in current target jQuery object are selected. The returned `table` is one jQuery object that includes all of those (duplicated elements are excluded).  
+
+### Initialize
+
+```js
+target.getTable()
+```
+
+Parse the table, and cache those data.  
+You usually don't need to call initialize method, because getTable parses it automatically when getTable met unknown table via other methods. And getTable caches those data, therefore parsing again is not needed.  
+The cases of initialize method is needed are:
+
++ You want to make preparations in advance.
++ You changed structure of the table that was already parsed.
+
+If the element that is included in current target jQuery object is `<table>`, that table is parsed. If element is part of `<table>` (`<tr>`, `<td>`, `<th>`, `<thead>`, `<tfoot>` or `<tbody>`), the table that has those parts  is parsed.
+i.e. these codes below are equals:
+
+```js
+$('table#table1').getTable();
+$('table#table1>tbody:eq(0)').getTable();
+$('table#table1>tbody:eq(0)>tr:eq(0)').getTable();
+```
+
+getTable discern nested table correctly, therefore if `td` of only inner table is given, outer table is not parsed.
 
 ## Note
 
