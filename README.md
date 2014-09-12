@@ -51,7 +51,7 @@ Example:
 ```js
 var hl; // keep to restore
 $('td').hover(function() {
-  hl = $(this).getTable('rows').addClass('highlight');
+  hl = $(this).getTable('rows')[0].addClass('highlight');
 }, function() {
   hl.removeClass('highlight');
 });
@@ -80,7 +80,7 @@ Example:
 ```js
 var hl; // keep to restore
 $('td').hover(function() {
-  hl = $(this).getTable('cols').addClass('highlight');
+  hl = $(this).getTable('cols')[0].addClass('highlight');
 }, function() {
   hl.removeClass('highlight');
 });
