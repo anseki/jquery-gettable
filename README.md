@@ -6,7 +6,7 @@ The simple jQuery Plugin for easy getting table cells that is positioned on hori
 + getTable gets horizontal line (`row`) and vertical line (`col`) of table. And it gets cells that is positioned on those lines. The handling cells that is positioned on horizontal line is supported by `<tr>` HTML tag, but vertical line is not supported by HTML.
 + The cells that is extended by `colspan`/`rowspan` are parsed correctly. More lines pass through the extended cells (i.e. those cells catch more cells), and those cells are positioned on more lines (i.e. those cells are caught by more cells).
 + The horizontal line (`row`) and vertical line (`col`) are discerned. getTable returns a jQuery object (or Array of those), therefore you can do anything you want to those.
-+ The table is parsed via DOM, it's fast, correctly, and those data are cached. 
++ The table is parsed via DOM, it's fast, correctly, and those data are cached.
 
 ```js
 // Get rows that include target cell.
