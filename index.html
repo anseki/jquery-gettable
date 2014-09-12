@@ -4,11 +4,14 @@
   <head>
     <meta charset='utf-8'>
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <meta name="description" content="Jquery-gettable : The simple jQuery Plugin for easy getting table cells that is positioned on horizontal line, vertical line or both lines that passes through the target cell.">
+    <meta name="description" content="getTable : The simple jQuery Plugin for easy getting table cells that is positioned on horizontal line, vertical line or both lines that passes through the target cell.">
 
     <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/sample.css">
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="javascripts/jquery.gettable.min.js"></script>
 
-    <title>Jquery-gettable</title>
+    <title>getTable</title>
   </head>
 
   <body>
@@ -18,7 +21,7 @@
         <header class="inner">
           <a id="forkme_banner" href="https://github.com/anseki/jquery-gettable">View on GitHub</a>
 
-          <h1 id="project_title">Jquery-gettable</h1>
+          <h1 id="project_title">getTable</h1>
           <h2 id="project_tagline">The simple jQuery Plugin for easy getting table cells that is positioned on horizontal line, vertical line or both lines that passes through the target cell.</h2>
 
             <section id="downloads">
@@ -31,16 +34,138 @@
     <!-- MAIN CONTENT -->
     <div id="main_content_wrap" class="outer">
       <section id="main_content" class="inner">
-        <h1>
-<a name="gettable" class="anchor" href="#gettable"><span class="octicon octicon-link"></span></a>getTable</h1>
 
-<p>The simple jQuery Plugin for easy getting table cells that is positioned on horizontal line, vertical line or both lines that passes through the target cell.<br><strong>See <a href="http://anseki.github.io/jquery-gettable">DEMO</a></strong></p>
+<!-- ======== sample -->
+<div class="col-r">
+<p class="caption">Move mouse on below.</p>
+<table class="sample-a" id="sample-1">
+  <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+  <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+  <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+  <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+  <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+  <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+  <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+  <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+  <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+  <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+</table>
+</div>
+<!-- ======== /sample -->
+<p>The simple jQuery Plugin for easy getting table cells that is positioned on horizontal line, vertical line or both lines that passes through the target cell.</p>
 
 <ul>
-<li>getTable gets horizontal line (<code>row</code>) and vertical line (<code>col</code>) of table. And it gets cells that is positioned on those lines. The handling cells that is positioned on horizontal line is supported by <code>&lt;tr&gt;</code> HTML tag, but vertical line is not supported by HTML.</li>
-<li>The cells that is extended by <code>colspan</code>/<code>rowspan</code> are parsed correctly. More lines pass through the extended cells (i.e. those cells catch more cells), and those cells are positioned on more lines (i.e. those cells are caught by more cells).</li>
-<li>The horizontal line (<code>row</code>) and vertical line (<code>col</code>) are discerned. getTable returns a jQuery object (or Array of those), therefore you can do anything you want to those.</li>
-<li>The table is parsed via DOM, it's fast, correctly, and those data are cached. </li>
+<li>getTable gets horizontal line (<code>row</code>) and vertical line (<code>col</code>) of table. And it gets cells that is positioned on those lines. The handling cells that is positioned on horizontal line is supported by <code>&lt;tr&gt;</code> HTML tag, but vertical line is not supported by HTML.<span class="clearfix"></span></li>
+<li>
+<!-- ======== sample -->
+<div class="col-r">
+<table class="sample-a" id="sample-2">
+  <tr><td></td><td colspan="2"></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+  <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+  <tr><td></td><td></td><td></td><td rowspan="2"></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+  <tr><td></td><td colspan="2" rowspan="2"></td><td></td><td></td><td></td><td colspan="3"></td></tr>
+  <tr><td></td><td></td><td colspan="2" rowspan="3"></td><td></td><td></td><td></td><td></td></tr>
+  <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+  <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+  <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td rowspan="2"></td><td></td></tr>
+  <tr><td colspan="2"></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+  <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+</table>
+<script>
+$(function() {
+  var hl;
+  $('#sample-1 td,#sample-2 td').hover(function() {
+    hl = $(this).getTable('xCells').addClass('hl1');
+    hl.eq(0).addClass('hl2');
+  }, function() {
+    hl.removeClass('hl1 hl2');
+  });
+})
+</script>
+</div>
+<!-- ======== /sample -->
+The cells that is extended by <code>colspan</code>/<code>rowspan</code> are parsed correctly. More lines pass through the extended cells (i.e. those cells catch more cells), and those cells are positioned on more lines (i.e. those cells are caught by more cells).<span class="clearfix"></span></li>
+<li>
+<!-- ======== sample -->
+<div class="col-r">
+<table class="sample-a" id="sample-3">
+  <tr><th></th><th>A</th><th>B</th><th>C</th><th>D</th><th>E</th><th>F</th><th>G</th><th>H</th><th>I</th></tr>
+  <tr><th>1</th><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+  <tr><th>2</th><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+  <tr><th>3</th><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+  <tr><th>4</th><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+  <tr><th>5</th><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+  <tr><th>6</th><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+  <tr><th>7</th><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+  <tr><th>8</th><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+  <tr><th>9</th><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+</table>
+<div class="label" id="label-3"></div>
+<script>
+$(function() {
+  var hlrow, hlcol, label = $('#label-3');
+  $('#sample-3 td').hover(function() {
+    hlrow = $(this).getTable('rows')[0].addClass('hlrow');
+    hlcol = $(this).getTable('cols')[0].addClass('hlcol');
+    label.text(hlcol.eq(0).text() + hlrow.eq(0).text());
+  }, function() {
+    hlrow.removeClass('hlrow');
+    hlcol.removeClass('hlcol');
+    label.text('');
+  });
+})
+</script>
+</div>
+<!-- ======== /sample -->
+The horizontal line (<code>row</code>) and vertical line (<code>col</code>) are discerned. getTable returns a jQuery object (or Array of those), therefore you can do anything you want to those.<span class="clearfix"></span></li>
+<li>
+<!-- ======== sample -->
+<div class="col-r">
+<p class="caption">The nested table is also parsed correctly.</p>
+<table class="sample-a" id="sample-4">
+  <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+  <tr><td></td><td></td><td></td><td></td>
+    <td colspan="5" rowspan="5" id="incel"><table class="sample-a" id="sample-5">
+    <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+    <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+    <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+    <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+    <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+    <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+    <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+    <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+    <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+    <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+    </table></td>
+  <td></td></tr>
+  <tr><td></td><td></td><td></td><td></td><td></td></tr>
+  <tr><td></td><td></td><td></td><td></td><td></td></tr>
+  <tr><td></td><td></td><td></td><td></td><td></td></tr>
+  <tr><td></td><td></td><td></td><td></td><td></td></tr>
+  <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+  <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+  <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+  <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+</table>
+<script>
+$(function() {
+  var hl;
+  $('#sample-4 td:not(#incel)').hover(function() {
+    var that = $(this);
+    if (that.prop('colspan') !== '5') {
+      hl = that.getTable('xCells').addClass('hl1');
+      hl.eq(0).addClass('hl2');
+    }
+    return false;
+  }, function() {
+    hl.removeClass('hl1 hl2');
+    return false;
+  });
+})
+</script>
+</div>
+<!-- ======== /sample -->
+The table is parsed via DOM, it's fast, correctly, and those data are cached.<span class="clearfix"></span></li>
 </ul><div class="highlight highlight-js"><pre><span class="c1">// Get rows that include target cell.</span>
 <span class="nx">rows</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="s1">'td#target'</span><span class="p">).</span><span class="nx">getTable</span><span class="p">(</span><span class="s1">'rows'</span><span class="p">);</span>
 
@@ -131,6 +256,39 @@ Example:<br>
 
 <p>In any cases, the nested <code>table</code> (<code>table</code> that is included in current target) is excluded (If part of the nested <code>table</code> is target too, of course it is included).</p>
 
+<!-- ======== sample -->
+<p class="caption">Temperature (degree Celsius)</p><!-- caption FIrefox bug -->
+<table class="sample-b" id="sample-6">
+  <tr><th></th><th>Jan</th><th>Feb</th><th>Mar</th><th>Apr</th><th>May</th><th>Jun</th><th>Jul</th><th>Aug</th><th>Sep</th><th>Oct</th><th>Nov</th><th>Dec</th></tr>
+  <tr><th>City-A</th><td rowspan="2">3.2</td><td>4.6</td><td>5.5</td><td>8.1</td><td>16.6</td><td>18.7</td><td>20.2</td><td rowspan="2">25.1</td><td>21.2</td><td>15.6</td><td>10.6</td><td>6.9</td></tr>
+  <tr><th>City-B</th><td>4.8</td><td>6.1</td><td>10.2</td><td colspan="2">16.7</td><td>23.7</td><td>22.0</td><td rowspan="2">17.6</td><td>11.1</td><td>7.1</td></tr>
+  <tr><th>City-C</th><td colspan="2">5.2</td><td>8.5</td><td>14.1</td><td>18.6</td><td>21.7</td><td rowspan="2">25.2</td><td>27.1</td><td>23.2</td><td>12.6</td><td>7.9</td></tr>
+  <tr><th>City-D</th><td>6.3</td><td rowspan="2">5.6</td><td>8.9</td><td rowspan="2">15.1</td><td>18.9</td><td>23.1</td><td>28.4</td><td rowspan="2">23.8</td><td colspan="2">17.7</td><td>9.1</td></tr>
+  <tr><th>City-E</th><td>6.7</td><td rowspan="2">9.2</td><td colspan="2">19.1</td><td>25.4</td><td>29.2</td><td>17.9</td><td rowspan="2">17.3</td><td rowspan="2">9.3</td></tr>
+  <tr><th>City-F</th><td colspan="2">6.8</td><td>15.4</td><td colspan="2">19.3</td><td>26.2</td><td>29.1</td><td>24.1</td><td>18.6</td></tr>
+</table>
+<div class="label" id="label-6" style="width: 20em;"></div>
+<script>
+$(function() {
+  var hl, hlrow, hlcol, label = $('#label-6');
+  $('#sample-6 td').hover(function() {
+    hl = $(this).addClass('hl');
+    hlrow = $($.map(hl.getTable('rows'), function(row) { return row.get(0); })).addClass('hlrow');
+    hlcol = $($.map(hl.getTable('cols'), function(col) { return col.get(0); })).addClass('hlcol');
+    label.text(
+      $.map(hlrow, function(head) { return $(head).text(); }).join(', ') + ' in ' +
+      $.map(hlcol, function(head) { return $(head).text(); }).join(', ') + ' : ' +
+      hl.text());
+  }, function() {
+    hl.removeClass('hl');
+    hlcol.removeClass('hlcol');
+    hlrow.removeClass('hlrow');
+    label.text('');
+  });
+})
+</script>
+<!-- ======== /sample -->
+
 <h3>
 <a name="cells" class="anchor" href="#cells"><span class="octicon octicon-link"></span></a><code>cells</code>
 </h3>
@@ -188,6 +346,30 @@ The elements that is not <code>cell</code> (<code>&lt;td&gt;</code> or <code>&lt
 <span class="p">});</span>
 </pre></div>
 
+<!-- ======== sample -->
+<table class="sample-b" id="sample-7">
+  <tr><th></th><th>A</th><th>B</th><th>C</th><th>D</th><th>E</th><th>F</th><th>G</th><th>H</th><th>I</th></tr>
+  <tr><th>1</th><td></td><td colspan="2"></td><td rowspan="3"></td><td></td><td></td><td></td><td></td><td></td></tr>
+  <tr><th>2</th><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+  <tr><th>3</th><td colspan="3"></td><td></td><td></td><td></td><td></td><td></td></tr>
+  <tr><th>4</th><td rowspan="2"></td><td></td><td></td><td></td><td colspan="2" rowspan="2"></td><td></td><td></td><td></td></tr>
+  <tr><th>5</th><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+</table>
+<div class="label" id="label-7"></div>
+<script>
+$(function() {
+  var hl, label = $('#label-7');
+  $('#sample-7 td').hover(function() {
+    hl = $(this).getTable('xCells').addClass('hl');
+    label.text(hl.length + ' cells');
+  }, function() {
+    hl.removeClass('hl');
+    label.text('');
+  });
+})
+</script>
+<!-- ======== /sample -->
+
 <h3>
 <a name="table" class="anchor" href="#table"><span class="octicon octicon-link"></span></a><code>table</code>
 </h3>
@@ -207,7 +389,7 @@ The elements that is not <code>cell</code> (<code>&lt;td&gt;</code> or <code>&lt
     <!-- FOOTER  -->
     <div id="footer_wrap" class="outer">
       <footer class="inner">
-        <p class="copyright">Jquery-gettable maintained by <a href="https://github.com/anseki">anseki</a></p>
+        <p class="copyright">getTable maintained by <a href="https://github.com/anseki">anseki</a></p>
         <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
       </footer>
     </div>
