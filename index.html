@@ -214,7 +214,7 @@ Example:<br>
 </li>
 </ul><div class="highlight highlight-js"><pre><span class="kd">var</span> <span class="nx">hl</span><span class="p">;</span> <span class="c1">// keep to restore</span>
 <span class="nx">$</span><span class="p">(</span><span class="s1">'td'</span><span class="p">).</span><span class="nx">hover</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
-  <span class="nx">hl</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="k">this</span><span class="p">).</span><span class="nx">getTable</span><span class="p">(</span><span class="s1">'rows'</span><span class="p">).</span><span class="nx">addClass</span><span class="p">(</span><span class="s1">'highlight'</span><span class="p">);</span>
+  <span class="nx">hl</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="k">this</span><span class="p">).</span><span class="nx">getTable</span><span class="p">(</span><span class="s1">'rows'</span><span class="p">)[</span><span class="mi">0</span><span class="p">].</span><span class="nx">addClass</span><span class="p">(</span><span class="s1">'highlight'</span><span class="p">);</span>
 <span class="p">},</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
   <span class="nx">hl</span><span class="p">.</span><span class="nx">removeClass</span><span class="p">(</span><span class="s1">'highlight'</span><span class="p">);</span>
 <span class="p">});</span>
@@ -248,7 +248,7 @@ Example:<br>
 </li>
 </ul><div class="highlight highlight-js"><pre><span class="kd">var</span> <span class="nx">hl</span><span class="p">;</span> <span class="c1">// keep to restore</span>
 <span class="nx">$</span><span class="p">(</span><span class="s1">'td'</span><span class="p">).</span><span class="nx">hover</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
-  <span class="nx">hl</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="k">this</span><span class="p">).</span><span class="nx">getTable</span><span class="p">(</span><span class="s1">'cols'</span><span class="p">).</span><span class="nx">addClass</span><span class="p">(</span><span class="s1">'highlight'</span><span class="p">);</span>
+  <span class="nx">hl</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="k">this</span><span class="p">).</span><span class="nx">getTable</span><span class="p">(</span><span class="s1">'cols'</span><span class="p">)[</span><span class="mi">0</span><span class="p">].</span><span class="nx">addClass</span><span class="p">(</span><span class="s1">'highlight'</span><span class="p">);</span>
 <span class="p">},</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
   <span class="nx">hl</span><span class="p">.</span><span class="nx">removeClass</span><span class="p">(</span><span class="s1">'highlight'</span><span class="p">);</span>
 <span class="p">});</span>
