@@ -379,6 +379,29 @@ $(function() {
 
 <p>Return a jQuery object that includes zero or more <code>table</code> (<code>&lt;table&gt;</code>) elements. The <code>&lt;table&gt;</code> elements that is included in current target jQuery object, and the <code>&lt;table&gt;</code> elements that have <code>&lt;tr&gt;</code>, <code>&lt;td&gt;</code>, <code>&lt;th&gt;</code>, <code>&lt;thead&gt;</code>, <code>&lt;tfoot&gt;</code> or <code>&lt;tbody&gt;</code> elements that is included in current target jQuery object are selected. The returned <code>table</code> is one jQuery object that includes all of those (duplicated elements are excluded).  </p>
 
+<h3>
+<a name="initialize" class="anchor" href="#initialize"><span class="octicon octicon-link"></span></a>Initialize</h3>
+
+<div class="highlight highlight-js"><pre><span class="nx">target</span><span class="p">.</span><span class="nx">getTable</span><span class="p">()</span>
+</pre></div>
+
+<p>Parse the table, and cache those data.<br>
+You usually don't need to call initialize method, because getTable parses it automatically when getTable met unknown table via other methods. And getTable caches those data, therefore parsing again is not needed.<br>
+The cases of initialize method is needed are:</p>
+
+<ul>
+<li>You want to make preparations in advance.</li>
+<li>You changed structure of the table that was already parsed.</li>
+</ul><p>If the element that is included in current target jQuery object is <code>&lt;table&gt;</code>, that table is parsed. If element is part of <code>&lt;table&gt;</code> (<code>&lt;tr&gt;</code>, <code>&lt;td&gt;</code>, <code>&lt;th&gt;</code>, <code>&lt;thead&gt;</code>, <code>&lt;tfoot&gt;</code> or <code>&lt;tbody&gt;</code>), the table that has those parts  is parsed.
+i.e. these codes below are equals:</p>
+
+<div class="highlight highlight-js"><pre><span class="nx">$</span><span class="p">(</span><span class="s1">'table#table1'</span><span class="p">).</span><span class="nx">getTable</span><span class="p">();</span>
+<span class="nx">$</span><span class="p">(</span><span class="s1">'table#table1&gt;tbody:eq(0)'</span><span class="p">).</span><span class="nx">getTable</span><span class="p">();</span>
+<span class="nx">$</span><span class="p">(</span><span class="s1">'table#table1&gt;tbody:eq(0)&gt;tr:eq(0)'</span><span class="p">).</span><span class="nx">getTable</span><span class="p">();</span>
+</pre></div>
+
+<p>getTable discern nested table correctly, therefore if <code>td</code> of only inner table is given, outer table is not parsed.</p>
+
 <h2>
 <a name="note" class="anchor" href="#note"><span class="octicon octicon-link"></span></a>Note</h2>
 
