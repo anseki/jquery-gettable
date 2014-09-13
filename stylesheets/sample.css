@@ -1,5 +1,5 @@
 
-table.sample-a, table.sample-b {
+table.sample-a, table.sample-b, table.sample-c {
   margin: 10px;
   border-collapse: collapse;
 }
@@ -42,6 +42,47 @@ table.sample-b td {
 table.sample-b td.hl { background-color: #eddea0; }
 table.sample-b th.hlrow, table.sample-b th.hlcol { background-color: #ab9632; }
 
+table.sample-c td, table.sample-c th {
+  padding: 2px;
+  border: 1px solid #999;
+  vertical-align: middle;
+  font-size: 0.8em;
+}
+
+table.sample-c th, table.sample-c thead td {
+  background-color: #444;
+  color: white;
+  font-weight: normal;
+}
+table.sample-c thead th {
+  width: 100px;
+  text-align: center;
+}
+table.sample-c tbody th {
+  height: 0.8em;
+  white-space: nowrap;
+  text-align: right;
+}
+
+table.sample-c tbody td {
+  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #b7d0dd), color-stop(60%, #cce1ec));
+  background-image: -webkit-linear-gradient(#b7d0dd 0%, #cce1ec 60%);
+  background-image: -moz-linear-gradient(#b7d0dd 0%, #cce1ec 60%);
+  background-image: -o-linear-gradient(#b7d0dd 0%, #cce1ec 60%);
+  background-image: linear-gradient(#b7d0dd 0%, #cce1ec 60%);
+}
+
+table.sample-c tbody td.hlrow {
+  background-image: none;
+  background-color: #7ebee0;
+}
+table.sample-c tbody td.hlcol {
+  background-image: none;
+  background-color: #a2c1d2;
+}
+table.sample-c tbody td.hlrow.hlcol { background-color: #5ecfd9; }
+table.sample-c tbody th.hlrow, table.sample-c thead th.hlcol { background-color: #99a394; }
+
 table#sample-5 {
   margin: 0;
 }
@@ -50,6 +91,22 @@ table#sample-5 td {
   height: 10px;
 }
 table#sample-5 td:not(.hl1):not(.hl2) { background-color: transparent; }
+
+table#sample-8 {
+  margin: 10px auto;
+}
+
+#sample-8-wrap {
+  padding-top: 60px;
+}
+#sample-8-wrap li {
+  font-size: 1.2em;
+  font-weight: bold;
+  text-align: center;
+}
+#sample-8-wrap li span {
+  color: blue;
+}
 
 .label {
   width: 5em;

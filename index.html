@@ -8,7 +8,7 @@
 
     <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
     <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/sample.css">
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
     <script src="javascripts/jquery.gettable.min.js"></script>
 
     <title>getTable</title>
@@ -33,8 +33,63 @@
 
     <!-- MAIN CONTENT -->
     <div id="main_content_wrap" class="outer">
-      <section id="main_content" class="inner">
-
+<!-- ======== sample -->
+<div id="sample-8-wrap">
+<ul>
+  <li>When <span>Anakin</span> is having <span>lunch</span>, what are they doing? (Move mouse on "2 pm" of "Anakin".)</li>
+  <li><span>Chewie</span> acts together with <span>Han</span> nearly always, because he is Han's job buddy.</li>
+</ul>
+<table class="sample-c" id="sample-8">
+  <thead>
+    <tr><td></td><th>Han</th><th>Leia</th><th>Luke</th><th>Yoda</th><th style="font-size: 0.8em;">Obi-Wan</th><th>Jabba</th><th>Chewie</th><th>Anakin</th><th>C-3PO</th><th>R2-D2</th></tr>
+  </thead>
+  <tbody>
+    <tr><th>6 am</th><td rowspan="4">Sleeping</td><td>Shower</td><td rowspan="2">Force<br>Training</td><td>Walking forest</td><td>Meditation</td><td rowspan="3">Sleeping</td><td rowspan="4">Sleeping</td><td rowspan="3">Force<br>Training</td><td>Booting</td><td>Booting</td></tr>
+    <tr><th>7 am</th><td>Makeup</td><td rowspan="3">Sleeping</td><td>Breakfast</td><td rowspan="2">Virus Scan</td><td>Cleaning</td></tr>
+    <tr><th>8 am</th><td>Breakfast</td><td>Breakfast</td><td>Meditation</td><td>Virus Scan</td></tr>
+    <tr><th>9 am</th><td rowspan="3">Conference</td><td rowspan="3">Force<br>Training</td><td rowspan="2">Teaching</td><td rowspan="2">Drinking</td><td>Breakfast</td><td rowspan="3">Conference<br>with Leia</td><td rowspan="3">Conference<br>with Leia</td></tr>
+    <tr><th>10 am</th><td rowspan="2">Waking Up,<br>Breakfast</td><td rowspan="2">Teaching</td><td>Breakfast</td><td rowspan="2">Conference</td></tr>
+    <tr><th>11 am</th><td>Lunch</td><td rowspan="2">Eating Strange</td><td rowspan="2">Maintenance</td></tr>
+    <tr><th>12 pm</th><td>Maintenance</td><td>Lunch</td><td>Lunch</td><td>Lunch</td><td rowspan="3">Force<br>Training</td><td rowspan="2">Military<br>Training</td><td rowspan="2">Installing New</td><td>Installing New</td></tr>
+    <tr><th>1 pm</th><td rowspan="2">Buying-in</td><td rowspan="3">Inspection</td><td rowspan="3">Force<br>Training</td><td rowspan="2">Sleeping</td><td rowspan="2">Watching Dance</td><td rowspan="2">Buying-in</td><td rowspan="3">Inspection<br>with Leia</td></tr>
+    <tr><th>2 pm</th><td>Lunch</td><td rowspan="2">Inspection<br>with Leia</td></tr>
+    <tr><th>3 pm</th><td>Lunch</td><td>Teaching</td><td rowspan="3">Farming</td><td rowspan="5">Drinking</td><td>Lunch</td><td rowspan="4">Force<br>Training</td></tr>
+    <tr><th>4 pm</th><td rowspan="2">Navigating</td><td rowspan="3">Saber<br>Training</td><td rowspan="3">Military<br>Training</td><td rowspan="2">Walking forest</td><td rowspan="2">Navigating</td><td rowspan="2">Servicing</td><td rowspan="3">Cleaning</td></tr>
+    <tr><th>5 pm</th></tr>
+    <tr><th>6 pm</th><td>Delivering</td><td rowspan="3">Sleeping</td><td>Bath</td><td>Delivering</td><td>Cleaning</td></tr>
+    <tr><th>7 pm</th><td rowspan="2">Navigating</td><td rowspan="2">Bath</td><td>Dinner</td><td>Dinner</td><td rowspan="2">Navigating</td><td rowspan="2">Inspection</td><td rowspan="2">Backing<br>Up Data</td><td>Servicing</td></tr>
+    <tr><th>8 pm</th><td rowspan="2">Reading</td><td rowspan="2">Reading</td><td rowspan="2">Eating Strange</td><td rowspan="2">Backing<br>Up Data</td></tr>
+    <tr><th>9 pm</th><td rowspan="2">Dinner</td><td rowspan="2">Dinner</td><td>Dinner</td><td>Dinner</td><td rowspan="3">Saber<br>Mending</td><td rowspan="9">Sleep Mode,<br>Battery<br>Charging</td></tr>
+    <tr><th>10 pm</th><td>Shower</td><td rowspan="2">Walking forest</td><td rowspan="7">Sleeping</td><td rowspan="3">Drinking</td><td rowspan="8">Sleeping</td><td rowspan="8">Sleep Mode,<br>Battery<br>Charging</td></tr>
+    <tr><th>11 pm</th><td>Navigating</td><td>Study</td><td rowspan="2">Saber<br>Mending</td></tr>
+    <tr><th>12 am</th><td rowspan="3">Drinking</td><td rowspan="6">Sleeping</td><td rowspan="4">Sleeping</td><td rowspan="6">Sleeping</td></tr>
+    <tr><th>1 am</th><td rowspan="5">Sleeping</td><td rowspan="3">Eating Strange</td></tr>
+    <tr><th>2 am</th></tr>
+    <tr><th>3 am</th><td rowspan="3">Sleeping</td></tr>
+    <tr><th>4 am</th><td rowspan="2">Walking forest</td><td rowspan="2">Sleeping</td></tr>
+    <tr><th>5 am</th><td>Meditation</td></tr>
+  </tbody>
+</table>
+</div>
+<script>
+$(function() {
+  var hlrow, hlcol;
+  $('#sample-8 tbody td,#sample-8 tbody th').hover(function() {
+    var that = $(this);
+    hlrow = $();
+    hlcol = $();
+    $.each(that.getTable('rows'), function(i, row) { hlrow = hlrow.add(row); });
+    $.each(that.getTable('cols'), function(i, col) { hlcol = hlcol.add(col); });
+    hlrow.addClass('hlrow');
+    hlcol.addClass('hlcol');
+  }, function() {
+    hlcol.removeClass('hlcol');
+    hlrow.removeClass('hlrow');
+  });
+})
+</script>
+<!-- ======== /sample -->
+      <section id="main_content" class="inner" style="padding-top: 0;">
 <!-- ======== sample -->
 <div class="col-r">
 <p class="caption">Move mouse on below.</p>
@@ -195,7 +250,8 @@ The table is parsed via DOM, it's fast, correctly, and those data are cached.<sp
 <div class="highlight highlight-js"><pre><span class="nx">rows</span> <span class="o">=</span> <span class="nx">target</span><span class="p">.</span><span class="nx">getTable</span><span class="p">(</span><span class="s1">'rows'</span><span class="p">)</span>
 </pre></div>
 
-<p>Return an Array that includes zero or more <code>row</code>s. The <code>row</code> is a jQuery object that includes zero or more <code>cell</code> (<code>&lt;td&gt;</code> or <code>&lt;th&gt;</code>) elements that is positioned on a horizontal line. The elements are selected according to the each elements that is included in current target jQuery object. The returned <code>rows</code> is one Array that includes all of those.</p>
+<p>Return an Array that includes zero or more <code>row</code>s. The <code>row</code> is a jQuery object that includes zero or more <code>cell</code> (<code>&lt;td&gt;</code> or <code>&lt;th&gt;</code>) elements that is positioned on a horizontal line. The <code>cell</code>s in the <code>row</code> are sorted by position as from left to right, regardless of HTML source order. For example, <code>row.eq(0)</code> is leftmost <code>cell</code> like header.<br>
+The elements are selected according to the each elements that is included in current target jQuery object. The returned <code>rows</code> is one Array that includes all of those.</p>
 
 <p>An element that is included in current target jQuery object is:</p>
 
@@ -233,7 +289,8 @@ All <code>row</code>s in this <code>section</code> are selected.</li>
 <div class="highlight highlight-js"><pre><span class="nx">cols</span> <span class="o">=</span> <span class="nx">target</span><span class="p">.</span><span class="nx">getTable</span><span class="p">(</span><span class="s1">'cols'</span><span class="p">)</span>
 </pre></div>
 
-<p>Return an Array that includes zero or more <code>col</code>s. The <code>col</code> is a jQuery object that includes zero or more <code>cell</code> (<code>&lt;td&gt;</code> or <code>&lt;th&gt;</code>) elements that is positioned on a vertical line. The elements are selected according to the each elements that is included in current target jQuery object. The returned <code>cols</code> is one Array that includes all of those.</p>
+<p>Return an Array that includes zero or more <code>col</code>s. The <code>col</code> is a jQuery object that includes zero or more <code>cell</code> (<code>&lt;td&gt;</code> or <code>&lt;th&gt;</code>) elements that is positioned on a vertical line. The <code>cell</code>s in the <code>col</code> are sorted by position as from top to bottom, regardless of HTML source order. For example, <code>col.eq(0)</code> is uppermost <code>cell</code> like header.<br>
+The elements are selected according to the each elements that is included in current target jQuery object. The returned <code>cols</code> is one Array that includes all of those.</p>
 
 <p>An element that is included in current target jQuery object is:</p>
 
@@ -329,7 +386,7 @@ All <code>cell</code>s in this <code>section</code> are selected.</li>
 <div class="highlight highlight-js"><pre><span class="nx">cells</span> <span class="o">=</span> <span class="nx">target</span><span class="p">.</span><span class="nx">getTable</span><span class="p">(</span><span class="s1">'xCells'</span><span class="p">)</span>
 </pre></div>
 
-<p>Return a jQuery object that includes zero or more <code>cell</code> (<code>&lt;td&gt;</code> or <code>&lt;th&gt;</code>) elements that is positioned on cross line (horizontal line and vertical line) that pass through the each elements that is included in current target jQuery object. The returned <code>cells</code> is one jQuery object that includes all of those.<br>
+<p>Return a jQuery object that includes zero or more <code>cell</code> (<code>&lt;td&gt;</code> or <code>&lt;th&gt;</code>) elements that is positioned on cross line (horizontal line and vertical line) that pass through the each elements that is included in current target jQuery object. The returned <code>cells</code> is one jQuery object that includes all of those. The first <code>cell</code> of that <code>cells</code> is current target. i.e. <code>cells.eq(0)</code> is a <code>cell</code> on the cross point.<br>
 The elements that is not <code>cell</code> (<code>&lt;td&gt;</code> or <code>&lt;th&gt;</code>) are ignored.  </p>
 
 <p>This is not the same as merged <code>cell</code>s that is returned by <code>rows</code> method and <code>cols</code> method, <code>xCells</code> method returns unique <code>cell</code>s, duplicated elements are excluded.</p>
