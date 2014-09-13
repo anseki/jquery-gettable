@@ -36,7 +36,8 @@ Load after jQuery.
 rows = target.getTable('rows')
 ```
 
-Return an Array that includes zero or more `row`s. The `row` is a jQuery object that includes zero or more `cell` (`<td>` or `<th>`) elements that is positioned on a horizontal line. The elements are selected according to the each elements that is included in current target jQuery object. The returned `rows` is one Array that includes all of those.
+Return an Array that includes zero or more `row`s. The `row` is a jQuery object that includes zero or more `cell` (`<td>` or `<th>`) elements that is positioned on a horizontal line. The `cell`s in the `row` are sorted by position as from left to right, regardless of HTML source order. For example, `row.eq(0)` is leftmost `cell` like header.  
+The elements are selected according to the each elements that is included in current target jQuery object. The returned `rows` is one Array that includes all of those.
 
 An element that is included in current target jQuery object is:
 
@@ -68,7 +69,8 @@ In any cases, the nested `table` (`table` that is included in current target) is
 cols = target.getTable('cols')
 ```
 
-Return an Array that includes zero or more `col`s. The `col` is a jQuery object that includes zero or more `cell` (`<td>` or `<th>`) elements that is positioned on a vertical line. The elements are selected according to the each elements that is included in current target jQuery object. The returned `cols` is one Array that includes all of those.
+Return an Array that includes zero or more `col`s. The `col` is a jQuery object that includes zero or more `cell` (`<td>` or `<th>`) elements that is positioned on a vertical line. The `cell`s in the `col` are sorted by position as from top to bottom, regardless of HTML source order. For example, `col.eq(0)` is uppermost `cell` like header.  
+The elements are selected according to the each elements that is included in current target jQuery object. The returned `cols` is one Array that includes all of those.
 
 An element that is included in current target jQuery object is:
 
@@ -121,7 +123,7 @@ In any cases, the nested `table` (`table` that is included in current target) is
 cells = target.getTable('xCells')
 ```
 
-Return a jQuery object that includes zero or more `cell` (`<td>` or `<th>`) elements that is positioned on cross line (horizontal line and vertical line) that pass through the each elements that is included in current target jQuery object. The returned `cells` is one jQuery object that includes all of those.  
+Return a jQuery object that includes zero or more `cell` (`<td>` or `<th>`) elements that is positioned on cross line (horizontal line and vertical line) that pass through the each elements that is included in current target jQuery object. The returned `cells` is one jQuery object that includes all of those. The first `cell` of that `cells` is current target. i.e. `cells.eq(0)` is a `cell` on the cross point.  
 The elements that is not `cell` (`<td>` or `<th>`) are ignored.  
 
 This is not the same as merged `cell`s that is returned by `rows` method and `cols` method, `xCells` method returns unique `cell`s, duplicated elements are excluded.
