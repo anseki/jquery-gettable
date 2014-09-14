@@ -70,6 +70,7 @@ table.sample-c tbody td {
   background-image: -moz-linear-gradient(#b7d0dd 0%, #cce1ec 60%);
   background-image: -o-linear-gradient(#b7d0dd 0%, #cce1ec 60%);
   background-image: linear-gradient(#b7d0dd 0%, #cce1ec 60%);
+  vertical-align: top;
 }
 
 table.sample-c tbody td.hlrow {
