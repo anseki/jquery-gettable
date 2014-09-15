@@ -76,12 +76,8 @@ $(function() {
   var hlrow, hlcol;
   $('#sample-8 tbody td,#sample-8 tbody th').hover(function() {
     var that = $(this);
-    hlrow = $();
-    hlcol = $();
-    $.each(that.getTable('rows'), function(i, row) { hlrow = hlrow.add(row); });
-    $.each(that.getTable('cols'), function(i, col) { hlcol = hlcol.add(col); });
-    hlrow.addClass('hlrow');
-    hlcol.addClass('hlcol');
+    hlrow = that.getTable('rowsCells').addClass('hlrow');
+    hlcol = that.getTable('colsCells').addClass('hlcol');
   }, function() {
     hlcol.removeClass('hlcol');
     hlrow.removeClass('hlrow');
@@ -207,10 +203,8 @@ $(function() {
   var hl;
   $('#sample-4 td:not(#incel)').hover(function() {
     var that = $(this);
-    if (that.prop('colspan') !== '5') {
-      hl = that.getTable('xCells').addClass('hl1');
-      hl.eq(0).addClass('hl2');
-    }
+    hl = that.getTable('xCells').addClass('hl1');
+    hl.eq(0).addClass('hl2');
     return false;
   }, function() {
     hl.removeClass('hl1 hl2');
@@ -250,7 +244,7 @@ The table is parsed via DOM, it's fast, correctly, and those data are cached.<sp
 <div class="highlight highlight-js"><pre><span class="nx">rows</span> <span class="o">=</span> <span class="nx">target</span><span class="p">.</span><span class="nx">getTable</span><span class="p">(</span><span class="s1">'rows'</span><span class="p">)</span>
 </pre></div>
 
-<p>Return an Array that includes zero or more <code>row</code>s. The <code>row</code> is a jQuery object that includes zero or more <code>cell</code> (<code>&lt;td&gt;</code> or <code>&lt;th&gt;</code>) elements that is positioned on a horizontal line. The <code>cell</code>s in the <code>row</code> are sorted by position as from left to right, regardless of HTML source order. For example, <code>row.eq(0)</code> is leftmost <code>cell</code> like header.<br>
+<p>Return an Array that includes zero or more <code>row</code>s. The <code>row</code> is a jQuery object that includes zero or more <code>cell</code> (<code>&lt;td&gt;</code> or <code>&lt;th&gt;</code>) elements that is positioned on a horizontal line. The <code>cell</code>s in the <code>row</code> are sorted by position as from left to right, regardless of HTML source order. For example, <code>row.eq(0)</code> is leftmost <code>cell</code> like header.<br><em>(If you want to do something to all <code>cell</code>s in <code>rows</code> together (you want to do nothing to each <code>row</code>s), use <code>rowsCells</code> method.)</em><br>
 The elements are selected according to the each elements that is included in current target jQuery object. The returned <code>rows</code> is one Array that includes all of those.</p>
 
 <p>An element that is included in current target jQuery object is:</p>
@@ -283,13 +277,24 @@ All <code>row</code>s in this <code>section</code> are selected.</li>
 </ul><p>In any cases, the nested <code>table</code> (<code>table</code> that is included in current target) is excluded (If part of the nested <code>table</code> is target too, of course it is included).</p>
 
 <h3>
+<a name="rowscells" class="anchor" href="#rowscells"><span class="octicon octicon-link"></span></a><code>rowsCells</code>
+</h3>
+
+<div class="highlight highlight-js"><pre><span class="nx">cells</span> <span class="o">=</span> <span class="nx">target</span><span class="p">.</span><span class="nx">getTable</span><span class="p">(</span><span class="s1">'rowsCells'</span><span class="p">)</span>
+</pre></div>
+
+<p>Return a jQuery object that includes zero or more <code>cell</code> (<code>&lt;td&gt;</code> or <code>&lt;th&gt;</code>) elements that is included in all <code>row</code>s that selected by same way as <code>rows</code> method. The returned <code>cells</code> is one jQuery object that includes all of those.<br><em>(If you want to do something to each <code>row</code>s (you want to do nothing to all <code>cell</code>s in <code>rows</code> together), use <code>rows</code> method.)</em></p>
+
+<p>This is not the same as merged all <code>cell</code>s that is returned by <code>rows</code> method, <code>rowsCells</code> method returns unique <code>cell</code>s, duplicated elements are excluded.</p>
+
+<h3>
 <a name="cols" class="anchor" href="#cols"><span class="octicon octicon-link"></span></a><code>cols</code>
 </h3>
 
 <div class="highlight highlight-js"><pre><span class="nx">cols</span> <span class="o">=</span> <span class="nx">target</span><span class="p">.</span><span class="nx">getTable</span><span class="p">(</span><span class="s1">'cols'</span><span class="p">)</span>
 </pre></div>
 
-<p>Return an Array that includes zero or more <code>col</code>s. The <code>col</code> is a jQuery object that includes zero or more <code>cell</code> (<code>&lt;td&gt;</code> or <code>&lt;th&gt;</code>) elements that is positioned on a vertical line. The <code>cell</code>s in the <code>col</code> are sorted by position as from top to bottom, regardless of HTML source order. For example, <code>col.eq(0)</code> is uppermost <code>cell</code> like header.<br>
+<p>Return an Array that includes zero or more <code>col</code>s. The <code>col</code> is a jQuery object that includes zero or more <code>cell</code> (<code>&lt;td&gt;</code> or <code>&lt;th&gt;</code>) elements that is positioned on a vertical line. The <code>cell</code>s in the <code>col</code> are sorted by position as from top to bottom, regardless of HTML source order. For example, <code>col.eq(0)</code> is uppermost <code>cell</code> like header.<br><em>(If you want to do something to all <code>cell</code>s in <code>cols</code> together (you want to do nothing to each <code>col</code>s), use <code>colsCells</code> method.)</em><br>
 The elements are selected according to the each elements that is included in current target jQuery object. The returned <code>cols</code> is one Array that includes all of those.</p>
 
 <p>An element that is included in current target jQuery object is:</p>
@@ -347,6 +352,17 @@ $(function() {
 <!-- ======== /sample -->
 
 <h3>
+<a name="colscells" class="anchor" href="#colscells"><span class="octicon octicon-link"></span></a><code>colsCells</code>
+</h3>
+
+<div class="highlight highlight-js"><pre><span class="nx">cells</span> <span class="o">=</span> <span class="nx">target</span><span class="p">.</span><span class="nx">getTable</span><span class="p">(</span><span class="s1">'colsCells'</span><span class="p">)</span>
+</pre></div>
+
+<p>Return a jQuery object that includes zero or more <code>cell</code> (<code>&lt;td&gt;</code> or <code>&lt;th&gt;</code>) elements that is included in all <code>col</code>s that selected by same way as <code>cols</code> method. The returned <code>cells</code> is one jQuery object that includes all of those.<br><em>(If you want to do something to each <code>col</code>s (you want to do nothing to all <code>cell</code>s in <code>cols</code> together), use <code>cols</code> method.)</em></p>
+
+<p>This is not the same as merged all <code>cell</code>s that is returned by <code>cols</code> method, <code>colsCells</code> method returns unique <code>cell</code>s, duplicated elements are excluded.</p>
+
+<h3>
 <a name="cells" class="anchor" href="#cells"><span class="octicon octicon-link"></span></a><code>cells</code>
 </h3>
 
@@ -387,9 +403,9 @@ All <code>cell</code>s in this <code>section</code> are selected.</li>
 </pre></div>
 
 <p>Return a jQuery object that includes zero or more <code>cell</code> (<code>&lt;td&gt;</code> or <code>&lt;th&gt;</code>) elements that is positioned on cross line (horizontal line and vertical line) that pass through the each elements that is included in current target jQuery object. The returned <code>cells</code> is one jQuery object that includes all of those. The first <code>cell</code> of that <code>cells</code> is current target. i.e. <code>cells.eq(0)</code> is a <code>cell</code> on the cross point.<br>
-The elements that is not <code>cell</code> (<code>&lt;td&gt;</code> or <code>&lt;th&gt;</code>) are ignored.  </p>
+The elements that is not <code>cell</code> (<code>&lt;td&gt;</code> or <code>&lt;th&gt;</code>) are ignored.</p>
 
-<p>This is not the same as merged <code>cell</code>s that is returned by <code>rows</code> method and <code>cols</code> method, <code>xCells</code> method returns unique <code>cell</code>s, duplicated elements are excluded.</p>
+<p>This is not the same as merged all <code>cell</code>s that is returned by <code>rows</code> method and <code>cols</code> method, <code>xCells</code> method returns unique <code>cell</code>s, duplicated elements are excluded.</p>
 
 <p>The nested <code>table</code> (<code>table</code> that is included in current target) is excluded (If part of the nested <code>table</code> is target too, of course it is included).</p>
 
@@ -434,7 +450,7 @@ $(function() {
 <div class="highlight highlight-js"><pre><span class="nx">table</span> <span class="o">=</span> <span class="nx">target</span><span class="p">.</span><span class="nx">getTable</span><span class="p">(</span><span class="s1">'table'</span><span class="p">)</span>
 </pre></div>
 
-<p>Return a jQuery object that includes zero or more <code>table</code> (<code>&lt;table&gt;</code>) elements. The <code>&lt;table&gt;</code> elements that is included in current target jQuery object, and the <code>&lt;table&gt;</code> elements that have <code>&lt;tr&gt;</code>, <code>&lt;td&gt;</code>, <code>&lt;th&gt;</code>, <code>&lt;thead&gt;</code>, <code>&lt;tfoot&gt;</code> or <code>&lt;tbody&gt;</code> elements that is included in current target jQuery object are selected. The returned <code>table</code> is one jQuery object that includes all of those (duplicated elements are excluded).  </p>
+<p>Return a jQuery object that includes zero or more <code>table</code> (<code>&lt;table&gt;</code>) elements. The <code>&lt;table&gt;</code> elements that is included in current target jQuery object, and the <code>&lt;table&gt;</code> elements that have <code>&lt;tr&gt;</code>, <code>&lt;td&gt;</code>, <code>&lt;th&gt;</code>, <code>&lt;thead&gt;</code>, <code>&lt;tfoot&gt;</code> or <code>&lt;tbody&gt;</code> elements that is included in current target jQuery object are selected. The returned <code>table</code> is one jQuery object that includes all of those (duplicated elements are excluded).</p>
 
 <h3>
 <a name="initialize" class="anchor" href="#initialize"><span class="octicon octicon-link"></span></a>Initialize</h3>
