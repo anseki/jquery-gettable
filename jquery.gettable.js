@@ -165,6 +165,17 @@ function selectXCells(jq) {
 }
 
 function selectRows(jq) {
+  return $.map(selectRowsArray(jq), function(row) { return cells2Jq(row.cells); });
+}
+
+function selectRowsCells(jq) {
+  var elms = [];
+  $.each(selectRowsArray(jq),
+    function(i, row) { uniqueConcat(elms, cells2Elms(row.cells)); });
+  return $(elms.length ? elms : null);
+}
+
+function selectRowsArray(jq) {
   var rows = [];
   jq.each(function() {
     var that = $(this), tagName = that.get(0).nodeName.toLowerCase(), table;
@@ -179,10 +190,21 @@ function selectRows(jq) {
         { return table.rows[parseIndex($(elmRow)).row]; }));
     }
   });
-  return $.map(rows, function(row) { return cells2Jq(row.cells); });
+  return rows;
 }
 
 function selectCols(jq) {
+  return $.map(selectColsArray(jq), function(col) { return cells2Jq(col.cells); });
+}
+
+function selectColsCells(jq) {
+  var elms = [];
+  $.each(selectColsArray(jq),
+    function(i, col) { uniqueConcat(elms, cells2Elms(col.cells)); });
+  return $(elms.length ? elms : null);
+}
+
+function selectColsArray(jq) {
   var cols = [];
   jq.each(function() {
     var that = $(this), tagName = that.get(0).nodeName.toLowerCase(), table;
@@ -193,7 +215,7 @@ function selectCols(jq) {
       uniqueConcat(cols, table.cells[parseIndex(that).cell].cols);
     }
   });
-  return $.map(cols, function(col) { return cells2Jq(col.cells); });
+  return cols;
 }
 
 function selectTable(jq) {
@@ -216,12 +238,14 @@ function reParse(jq) {
 
 $.fn[APP_NAME] = function(action) {
   return (
-    action === 'cells' ?  selectCells(this) :
-    action === 'xCells' ? selectXCells(this) :
-    action === 'rows' ?   selectRows(this) :
-    action === 'cols' ?   selectCols(this) :
-    action === 'table' ?  selectTable(this) :
-                          reParse(this));
+    action === 'cells' ?      selectCells(this) :
+    action === 'xCells' ?     selectXCells(this) :
+    action === 'rows' ?       selectRows(this) :
+    action === 'rowsCells' ?  selectRowsCells(this) :
+    action === 'cols' ?       selectCols(this) :
+    action === 'colsCells' ?  selectColsCells(this) :
+    action === 'table' ?      selectTable(this) :
+                              reParse(this));
 };
 
 })(jQuery);
