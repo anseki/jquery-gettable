@@ -192,6 +192,7 @@ i.e. these codes below are equals:
 $('table#table1').getTable();
 $('table#table1>tbody:eq(0)').getTable();
 $('table#table1>tbody:eq(0)>tr:eq(0)').getTable();
+$('table#table1>tbody:eq(0)>tr:eq(0)>td:eq(0)').getTable();
 ```
 
 getTable discern nested table correctly, therefore if `<td>` of only inner table is given, outer table is not parsed.
