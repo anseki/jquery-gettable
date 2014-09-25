@@ -471,6 +471,7 @@ i.e. these codes below are equals:</p>
 <div class="highlight highlight-js"><pre><span class="nx">$</span><span class="p">(</span><span class="s1">'table#table1'</span><span class="p">).</span><span class="nx">getTable</span><span class="p">();</span>
 <span class="nx">$</span><span class="p">(</span><span class="s1">'table#table1&gt;tbody:eq(0)'</span><span class="p">).</span><span class="nx">getTable</span><span class="p">();</span>
 <span class="nx">$</span><span class="p">(</span><span class="s1">'table#table1&gt;tbody:eq(0)&gt;tr:eq(0)'</span><span class="p">).</span><span class="nx">getTable</span><span class="p">();</span>
+<span class="nx">$</span><span class="p">(</span><span class="s1">'table#table1&gt;tbody:eq(0)&gt;tr:eq(0)&gt;td:eq(0)'</span><span class="p">).</span><span class="nx">getTable</span><span class="p">();</span>
 </pre></div>
 
 <p>getTable discern nested table correctly, therefore if <code>&lt;td&gt;</code> of only inner table is given, outer table is not parsed.</p>
