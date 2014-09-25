@@ -185,7 +185,7 @@ The cases of initialize method is needed are:
 + You want to make preparations in advance.
 + You changed structure of the table that was already parsed.
 
-If the element that is included in current target jQuery object is `<table>`, that table is parsed. If element is part of `<table>` (`<tr>`, `<td>`, `<th>`, `<thead>`, `<tfoot>` or `<tbody>`), the table that has those parts  is parsed.
+If the element that is included in current target jQuery object is `<table>`, that table is parsed. If element is part of the table (`<tr>`, `<td>`, `<th>`, `<thead>`, `<tfoot>` or `<tbody>`), the table that has those parts  is parsed.
 i.e. these codes below are equals:
 
 ```js
@@ -194,7 +194,7 @@ $('table#table1>tbody:eq(0)').getTable();
 $('table#table1>tbody:eq(0)>tr:eq(0)').getTable();
 ```
 
-getTable discern nested table correctly, therefore if `td` of only inner table is given, outer table is not parsed.
+getTable discern nested table correctly, therefore if `<td>` of only inner table is given, outer table is not parsed.
 
 ## Note
 
