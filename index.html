@@ -163,16 +163,20 @@ $(function() {
     hlrow.removeClass('hlrow');
     hlcol.removeClass('hlcol');
     label.text('');
+  }).click(function() {
+    var hit = $(this).getTable('xCells').removeClass('res').addClass('hit');
+    setTimeout(function() { hit.addClass('res'); }, 10);
   });
 })
 </script>
 </div>
 <!-- ======== /sample -->
-The horizontal line (<code>row</code>) and vertical line (<code>col</code>) are discerned. getTable returns a jQuery object (or Array of those), therefore you can do anything you want to those.<span class="clearfix"></span></li>
+The horizontal line (<code>row</code>) and vertical line (<code>col</code>) are discerned. getTable returns a jQuery object (or Array of those), therefore you can do anything you want to those.
+<p class="caption for-r"><span>Move mouse and click.</span></p>
+<span class="clearfix"></span></li>
 <li>
 <!-- ======== sample -->
 <div class="col-r">
-<p class="caption">The nested table is also parsed correctly.</p>
 <table class="sample-a" id="sample-4">
   <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
   <tr><td></td><td></td><td></td><td></td>
@@ -214,7 +218,9 @@ $(function() {
 </script>
 </div>
 <!-- ======== /sample -->
-The table is parsed via DOM, it's fast, correctly, and those data are cached.<span class="clearfix"></span></li>
+The table is parsed via DOM, it's fast, correctly, and those data are cached.
+<p class="caption for-r"><span>The nested table is also parsed correctly.</span></p>
+<span class="clearfix"></span></li>
 </ul><div class="highlight highlight-js"><pre><span class="c1">// Get rows that include target cell.</span>
 <span class="nx">rows</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="s1">'td#target'</span><span class="p">).</span><span class="nx">getTable</span><span class="p">(</span><span class="s1">'rows'</span><span class="p">);</span>
 
