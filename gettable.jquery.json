@@ -1,6 +1,7 @@
 {
   "name": "gettable",
   "title": "getTable",
+  "version": "0.2.0",
   "description": "The simple jQuery Plugin for easy getting table cells that is positioned on horizontal line, vertical line or both lines that passes through the target cell.",
   "keywords": [
     "table",
@@ -13,22 +14,16 @@
     "tr",
     "td"
   ],
-  "version": "0.2.0",
-  "author": {
-    "name": "anseki",
-    "url": "https://github.com/anseki"
-  },
-  "licenses": [
-    {
-      "type": "MIT",
-      "url": "https://github.com/anseki/jquery-gettable/blob/master/LICENSE-MIT"
-    }
-  ],
-  "bugs": "https://github.com/anseki/jquery-gettable/issues",
   "homepage": "http://anseki.github.io/jquery-gettable/",
   "docs": "http://anseki.github.io/jquery-gettable/",
   "download": "http://anseki.github.io/jquery-gettable/",
+  "bugs": "https://github.com/anseki/jquery-gettable/issues",
   "dependencies": {
     "jquery": ">=1.8"
+  },
+  "licenses": "MIT",
+  "author": {
+    "name": "anseki",
+    "url": "https://github.com/anseki"
   }
 }
