@@ -14,13 +14,13 @@
     "tr",
     "td"
   ],
+  "dependencies": {
+    "jquery": ">=1.8"
+  },
   "homepage": "http://anseki.github.io/jquery-gettable/",
   "docs": "http://anseki.github.io/jquery-gettable/",
   "download": "http://anseki.github.io/jquery-gettable/",
   "bugs": "https://github.com/anseki/jquery-gettable/issues",
-  "dependencies": {
-    "jquery": ">=1.8"
-  },
   "licenses": "MIT",
   "author": {
     "name": "anseki",
