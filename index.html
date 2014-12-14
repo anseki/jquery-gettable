@@ -1,47 +1,36 @@
 <!DOCTYPE html>
 <html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="description" content="The simple jQuery Plugin for easy getting table cells that is positioned on horizontal line, vertical line or both lines that passes through the target cell.">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/syntax.css">
+  <link rel="stylesheet" href="css/default.css">
+  <link rel="stylesheet" href="css/sample.css">
+  <!-- Libs for sample codes must be loaded in "head". -->
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+  <script src="js/jquery.gettable.min.js"></script>
 
-  <head>
-    <meta charset='utf-8'>
-    <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <meta name="description" content="getTable : The simple jQuery Plugin for easy getting table cells that is positioned on horizontal line, vertical line or both lines that passes through the target cell.">
-
-    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
-    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/sample.css">
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-    <script src="javascripts/jquery.gettable.min.js"></script>
-
-    <title>getTable</title>
-  </head>
-
-  <body>
-
-    <!-- HEADER -->
-    <div id="header_wrap" class="outer">
-        <header class="inner">
-          <a id="forkme_banner" href="https://github.com/anseki/jquery-gettable">View on GitHub</a>
-
-          <h1 id="project_title">getTable</h1>
-          <h2 id="project_tagline">The simple jQuery Plugin for easy getting table cells that is positioned on horizontal line, vertical line or both lines that passes through the target cell.</h2>
-
-            <section id="downloads">
-              <a class="zip_download_link" href="https://github.com/anseki/jquery-gettable/zipball/master">Download this project as a .zip file</a>
-              <a class="tar_download_link" href="https://github.com/anseki/jquery-gettable/tarball/master">Download this project as a tar.gz file</a>
-            </section>
-        </header>
-    </div>
-
-    <!-- MAIN CONTENT -->
-    <div id="main_content_wrap" class="outer">
-<!-- ======== sample -->
-<div id="sample-8-wrap">
+  <title>getTable</title>
+</head>
+<body>
+  <header>
+    <h1><a href="./">getTable</a></h1>
+    <ul id="gh"><li><a href="https://github.com/anseki/jquery-gettable/tarball/master">Download TAR.GZ</a></li><li><a href="https://github.com/anseki/jquery-gettable/zipball/master">Download ZIP</a></li><li><a href="https://github.com/anseki/jquery-gettable">View on GitHub</a></li></ul>
+  </header>
+<!-- include "sample_01.html" -->
+<!-- ================ sample -->
+<div id="sample-01-wrap">
 <ul>
-  <li>When <span>Anakin</span> is having <span>lunch</span>, what are they doing? (Move mouse on "2 pm" of "Anakin".)</li>
+  <li>When <span>Anakin</span> is having a <span>lunch</span>, what are they doing? (Move mouse on "2 pm" of "Anakin".)</li>
   <li><span>Chewie</span> acts together with <span>Han</span> nearly always, because he is Han's job buddy.</li>
 </ul>
-<table class="sample-c" id="sample-8">
+
+<table class="sample-c" id="sample-01">
   <thead>
-    <tr><td></td><th>Han</th><th>Leia</th><th>Luke</th><th>Yoda</th><th style="font-size: 0.8em;">Obi-Wan</th><th>Jabba</th><th>Chewie</th><th>Anakin</th><th>C-3PO</th><th>R2-D2</th></tr>
+    <tr><td></td><th>Han</th><th>Leia</th><th>Luke</th><th>Yoda</th><th>Obi-Wan</th><th>Jabba</th><th>Chewie</th><th>Anakin</th><th>C-3PO</th><th>R2-D2</th></tr>
   </thead>
   <tbody>
     <tr><th>6 am</th><td rowspan="4">Sleeping</td><td>Shower</td><td rowspan="2">Force<br>Training</td><td>Walking forest</td><td>Meditation</td><td rowspan="3">Sleeping</td><td rowspan="4">Sleeping</td><td rowspan="3">Force<br>Training</td><td>Booting</td><td>Booting</td></tr>
@@ -71,10 +60,12 @@
   </tbody>
 </table>
 </div>
+
 <script>
 $(function() {
+
   var hlrow, hlcol;
-  $('#sample-8 tbody td,#sample-8 tbody th').hover(function() {
+  $('#sample-01 tbody td,#sample-01 tbody th').hover(function() {
     var that = $(this);
     hlrow = that.getTable('rowsCells').addClass('hlrow');
     hlcol = that.getTable('colsCells').addClass('hlcol');
@@ -82,14 +73,19 @@ $(function() {
     hlcol.removeClass('hlcol');
     hlrow.removeClass('hlrow');
   });
-})
+
+});
 </script>
-<!-- ======== /sample -->
-      <section id="main_content" class="inner" style="padding-top: 0;">
-<!-- ======== sample -->
-<div class="col-r">
-<p class="caption">Move mouse on below.</p>
-<table class="sample-a" id="sample-1">
+<!-- ================ /sample -->
+<!-- /include "sample_01.html" -->
+
+  <main>
+
+<!-- include "sample_02a.html" -->
+<!-- ================ sample -->
+<div class="sample-col-r">
+<div class="sample-caption">Move mouse on below</div>
+<table class="sample-a" id="sample-02a">
   <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
   <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
   <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
@@ -102,15 +98,18 @@ $(function() {
   <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
 </table>
 </div>
-<!-- ======== /sample -->
+<!-- ================ /sample -->
+<!-- /include "sample_02a.html" -->
+
 <p>The simple jQuery Plugin for easy getting table cells that is positioned on horizontal line, vertical line or both lines that passes through the target cell.</p>
 
 <ul>
-<li>getTable gets horizontal line (<code>row</code>) and vertical line (<code>col</code>) of table. And it gets cells that is positioned on those lines. The handling cells that is positioned on horizontal line is supported by <code>&lt;tr&gt;</code> HTML tag, but vertical line is not supported by HTML.<span class="clearfix"></span></li>
-<li>
-<!-- ======== sample -->
-<div class="col-r">
-<table class="sample-a" id="sample-2">
+<li>getTable gets horizontal line (<code>row</code>) and vertical line (<code>col</code>) of table. And it gets cells that is positioned on those lines. The handling cells that is positioned on horizontal line is supported by <code>&lt;tr&gt;</code> HTML tag, but vertical line is not supported by HTML.</li>
+<li class="sample-col-row">
+<!-- include "sample_02b.html" -->
+<!-- ================ sample -->
+<div class="sample-col-r">
+<table class="sample-a" id="sample-02b">
   <tr><td></td><td colspan="2"></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
   <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
   <tr><td></td><td></td><td></td><td rowspan="2"></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
@@ -122,24 +121,29 @@ $(function() {
   <tr><td colspan="2"></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
   <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
 </table>
+</div>
+
 <script>
 $(function() {
+
   var hl;
-  $('#sample-1 td,#sample-2 td').hover(function() {
+  $('#sample-02a td,#sample-02b td').hover(function() {
     hl = $(this).getTable('xCells').addClass('hl1');
     hl.eq(0).addClass('hl2');
   }, function() {
     hl.removeClass('hl1 hl2');
   });
-})
+
+});
 </script>
-</div>
-<!-- ======== /sample -->
-The cells that is extended by <code>colspan</code>/<code>rowspan</code> are parsed correctly. More lines pass through the extended cells (i.e. those cells catch more cells), and those cells are positioned on more lines (i.e. those cells are caught by more cells).<span class="clearfix"></span></li>
-<li>
-<!-- ======== sample -->
-<div class="col-r">
-<table class="sample-a" id="sample-3">
+<!-- ================ /sample -->
+<!-- /include "sample_02b.html" -->
+The cells that is extended by <code>colspan</code>/<code>rowspan</code> are parsed correctly. More lines pass through the extended cells (i.e. those cells catch more cells), and those cells are positioned on more lines (i.e. those cells are caught by more cells).</li>
+<li class="sample-col-row">
+<!-- include "sample_03.html" -->
+<!-- ================ sample -->
+<div class="sample-col-r">
+<table class="sample-a" id="sample-03">
   <tr><th></th><th>A</th><th>B</th><th>C</th><th>D</th><th>E</th><th>F</th><th>G</th><th>H</th><th>I</th></tr>
   <tr><th>1</th><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
   <tr><th>2</th><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
@@ -151,11 +155,13 @@ The cells that is extended by <code>colspan</code>/<code>rowspan</code> are pars
   <tr><th>8</th><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
   <tr><th>9</th><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
 </table>
-<div class="label" id="label-3"></div>
+</div>
+
 <script>
 $(function() {
-  var hlrow, hlcol, label = $('#label-3');
-  $('#sample-3 td').hover(function() {
+
+  var hlrow, hlcol, label = $('#sample-03-label');
+  $('#sample-03 td').hover(function() {
     hlrow = $(this).getTable('rows')[0].addClass('hlrow');
     hlcol = $(this).getTable('cols')[0].addClass('hlcol');
     label.text(hlcol.eq(0).text() + hlrow.eq(0).text());
@@ -167,20 +173,29 @@ $(function() {
     var hit = $(this).getTable('xCells').removeClass('res').addClass('hit');
     setTimeout(function() { hit.addClass('res'); }, 200); // wait time for Firefox
   });
-})
+
+});
 </script>
-</div>
-<!-- ======== /sample -->
+<!-- ================ /sample -->
+<!-- /include "sample_03.html" -->
 The horizontal line (<code>row</code>) and vertical line (<code>col</code>) are discerned. getTable returns a jQuery object (or Array of those), therefore you can do anything you want to those.
-<p class="caption for-r"><span>Move mouse and click.</span></p>
-<span class="clearfix"></span></li>
-<li>
-<!-- ======== sample -->
-<div class="col-r">
-<table class="sample-a" id="sample-4">
+<!-- include "sample_03_add.html" -->
+<!-- ================ sample -->
+<div class="sample-col-r">
+<div class="sample-caption">Move mouse and click</div>
+<div class="sample-label" id="sample-03-label"></div>
+</div>
+<!-- ================ /sample -->
+<!-- /include "sample_03_add.html" -->
+</li>
+<li class="sample-col-row">
+<!-- include "sample_04.html" -->
+<!-- ================ sample -->
+<div class="sample-col-r">
+<table class="sample-a" id="sample-04">
   <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
   <tr><td></td><td></td><td></td><td></td>
-    <td colspan="5" rowspan="5" id="incel"><table class="sample-a" id="sample-5">
+    <td colspan="5" rowspan="5" id="sample-04-cell"><table class="sample-a" id="sample-04-nest">
     <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
     <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
     <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
@@ -202,10 +217,13 @@ The horizontal line (<code>row</code>) and vertical line (<code>col</code>) are 
   <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
   <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
 </table>
+</div>
+
 <script>
 $(function() {
+
   var hl;
-  $('#sample-4 td:not(#incel)').hover(function() {
+  $('#sample-04 td:not(#sample-04-cell)').hover(function() {
     var that = $(this);
     hl = that.getTable('xCells').addClass('hl1');
     hl.eq(0).addClass('hl2');
@@ -214,119 +232,94 @@ $(function() {
     hl.removeClass('hl1 hl2');
     return false;
   });
-})
+
+});
 </script>
+<!-- ================ /sample -->
+<!-- /include "sample_04.html" -->
+The table is parsed via DOM, it&#39;s fast, correctly, and those data are cached.
+<!-- include "sample_04_add.html" -->
+<!-- ================ sample -->
+<div class="sample-col-r">
+<div class="sample-caption">The nested table is also parsed correctly</div>
 </div>
-<!-- ======== /sample -->
-The table is parsed via DOM, it's fast, correctly, and those data are cached.
-<p class="caption for-r"><span>The nested table is also parsed correctly.</span></p>
-<span class="clearfix"></span></li>
-</ul><div class="highlight highlight-js"><pre><span class="c1">// Get rows that include target cell.</span>
-<span class="nx">rows</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="s1">'td#target'</span><span class="p">).</span><span class="nx">getTable</span><span class="p">(</span><span class="s1">'rows'</span><span class="p">);</span>
+<!-- ================ /sample -->
+<!-- /include "sample_04_add.html" -->
+</li>
+</ul>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="c1">// Get rows that include target cell.</span>
+<span class="nx">rows</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;td#target&#39;</span><span class="p">).</span><span class="nx">getTable</span><span class="p">(</span><span class="s1">&#39;rows&#39;</span><span class="p">);</span>
 
 <span class="c1">// Get cols that include target cell.</span>
-<span class="nx">cols</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="s1">'td#target'</span><span class="p">).</span><span class="nx">getTable</span><span class="p">(</span><span class="s1">'cols'</span><span class="p">);</span>
+<span class="nx">cols</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;td#target&#39;</span><span class="p">).</span><span class="nx">getTable</span><span class="p">(</span><span class="s1">&#39;cols&#39;</span><span class="p">);</span>
 
 <span class="c1">// Get cells that is included in cross line (rows and cols) of target cell, and style those.</span>
-<span class="nx">cells</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="s1">'td#target'</span><span class="p">).</span><span class="nx">getTable</span><span class="p">(</span><span class="s1">'xCells'</span><span class="p">).</span><span class="nx">css</span><span class="p">(</span><span class="s1">'backgroundColor'</span><span class="p">,</span> <span class="s1">'blue'</span><span class="p">);</span>
-</pre></div>
-
-<h2>
-<a name="getting-started" class="anchor" href="#getting-started"><span class="octicon octicon-link"></span></a>Getting Started</h2>
+<span class="nx">cells</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;td#target&#39;</span><span class="p">).</span><span class="nx">getTable</span><span class="p">(</span><span class="s1">&#39;xCells&#39;</span><span class="p">).</span><span class="nx">css</span><span class="p">(</span><span class="s1">&#39;backgroundColor&#39;</span><span class="p">,</span> <span class="s1">&#39;blue&#39;</span><span class="p">);</span>
+</code></pre></div>
+<h2 id="getting-started">Getting Started</h2>
 
 <p>Load after jQuery.</p>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&quot;jquery-1.11.0.min.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
+<span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&quot;jquery.gettable.min.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
+</code></pre></div>
+<h2 id="methods">Methods</h2>
 
-<div class="highlight highlight-html"><pre><span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"jquery-1.11.0.min.js"</span><span class="nt">&gt;&lt;/script&gt;</span>
-<span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"jquery.gettable.min.js"</span><span class="nt">&gt;&lt;/script&gt;</span>
-</pre></div>
-
-<h2>
-<a name="methods" class="anchor" href="#methods"><span class="octicon octicon-link"></span></a>Methods</h2>
-
-<h3>
-<a name="rows" class="anchor" href="#rows"><span class="octicon octicon-link"></span></a><code>rows</code>
-</h3>
-
-<div class="highlight highlight-js"><pre><span class="nx">rows</span> <span class="o">=</span> <span class="nx">target</span><span class="p">.</span><span class="nx">getTable</span><span class="p">(</span><span class="s1">'rows'</span><span class="p">)</span>
-</pre></div>
-
-<p>Return an Array that includes zero or more <code>row</code>s. The <code>row</code> is a jQuery object that includes zero or more <code>cell</code> (<code>&lt;td&gt;</code> or <code>&lt;th&gt;</code>) elements that is positioned on a horizontal line. The <code>cell</code>s in the <code>row</code> are sorted by position as from left to right, regardless of HTML source order. For example, <code>row.eq(0)</code> is leftmost <code>cell</code> like header.<br><em>(If you want to do something to all <code>cell</code>s in <code>rows</code> together (you want to do nothing to each <code>row</code>s), use <code>rowsCells</code> method.)</em><br>
-The elements are selected according to the each elements that is included in current target jQuery object. The returned <code>rows</code> is one Array that includes all of those.</p>
+<h3 id="rows"><code>rows</code></h3>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">rows</span> <span class="o">=</span> <span class="nx">target</span><span class="p">.</span><span class="nx">getTable</span><span class="p">(</span><span class="s1">&#39;rows&#39;</span><span class="p">)</span>
+</code></pre></div>
+<p>Return an Array that includes zero or more <code>row</code>s. The <code>row</code> is a jQuery object that includes zero or more <code>cell</code> (<code>&lt;td&gt;</code> or <code>&lt;th&gt;</code>) elements that is positioned on a horizontal line. The <code>cell</code>s in the <code>row</code> are sorted by position as from left to right, regardless of HTML source order. For example, <code>row.eq(0)</code> is leftmost <code>cell</code> like header.<br><em>(If you want to do something to all <code>cell</code>s in <code>rows</code> together (you want to do nothing to each <code>row</code>s), use <code>rowsCells</code> method.)</em><br>The elements are selected according to the each elements that is included in current target jQuery object. The returned <code>rows</code> is one Array that includes all of those.</p>
 
 <p>An element that is included in current target jQuery object is:</p>
 
 <ul>
-<li>
-<strong><code>table</code></strong> (<code>&lt;table&gt;</code> element)<br>
-All <code>row</code>s in this <code>table</code> are selected.</li>
-<li>
-<strong><code>row</code></strong> (<code>&lt;tr&gt;</code> element)<br>
-This <code>row</code> itself is selected.<br>
-The <code>cell</code> elements in this <code>row</code> are not the same as <code>cell</code> elements in <code>&lt;tr&gt;</code> element, which includes <code>cell</code>s that is extended by <code>rowspan</code> in previous <code>&lt;tr&gt;</code>.</li>
-<li>
-<strong><code>cell</code></strong> (<code>&lt;td&gt;</code> or <code>&lt;th&gt;</code> element)<br>
-All <code>row</code>s that include this <code>cell</code> (i.e. horizontal lines that pass through this <code>cell</code>) are selected.<br><em>(If you want both <code>rows</code> and <code>cols</code> of <code>cell</code>, use <code>xCells</code> method.)</em><br>
-Example:<br>
-</li>
-</ul><div class="highlight highlight-js"><pre><span class="kd">var</span> <span class="nx">hl</span><span class="p">;</span> <span class="c1">// keep to restore</span>
-<span class="nx">$</span><span class="p">(</span><span class="s1">'td'</span><span class="p">).</span><span class="nx">hover</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
-  <span class="nx">hl</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="k">this</span><span class="p">).</span><span class="nx">getTable</span><span class="p">(</span><span class="s1">'rows'</span><span class="p">)[</span><span class="mi">0</span><span class="p">].</span><span class="nx">addClass</span><span class="p">(</span><span class="s1">'highlight'</span><span class="p">);</span>
+<li><strong><code>table</code></strong> (<code>&lt;table&gt;</code> element)<br>All <code>row</code>s in this <code>table</code> are selected.</li>
+<li><strong><code>row</code></strong> (<code>&lt;tr&gt;</code> element)<br>This <code>row</code> itself is selected.<br>The <code>cell</code> elements in this <code>row</code> are not the same as <code>cell</code> elements in <code>&lt;tr&gt;</code> element, which includes <code>cell</code>s that is extended by <code>rowspan</code> in previous <code>&lt;tr&gt;</code>.</li>
+<li><strong><code>cell</code></strong> (<code>&lt;td&gt;</code> or <code>&lt;th&gt;</code> element)<br>All <code>row</code>s that include this <code>cell</code> (i.e. horizontal lines that pass through this <code>cell</code>) are selected.<br><em>(If you want both <code>rows</code> and <code>cols</code> of <code>cell</code>, use <code>xCells</code> method.)</em><br>Example:</li>
+</ul>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">hl</span><span class="p">;</span> <span class="c1">// keep to restore</span>
+<span class="nx">$</span><span class="p">(</span><span class="s1">&#39;td&#39;</span><span class="p">).</span><span class="nx">hover</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+  <span class="nx">hl</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="k">this</span><span class="p">).</span><span class="nx">getTable</span><span class="p">(</span><span class="s1">&#39;rows&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">].</span><span class="nx">addClass</span><span class="p">(</span><span class="s1">&#39;highlight&#39;</span><span class="p">);</span>
 <span class="p">},</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
-  <span class="nx">hl</span><span class="p">.</span><span class="nx">removeClass</span><span class="p">(</span><span class="s1">'highlight'</span><span class="p">);</span>
+  <span class="nx">hl</span><span class="p">.</span><span class="nx">removeClass</span><span class="p">(</span><span class="s1">&#39;highlight&#39;</span><span class="p">);</span>
 <span class="p">});</span>
-</pre></div>
-
+</code></pre></div>
 <ul>
-<li>
-<strong><code>section</code></strong> (<code>&lt;thead&gt;</code>, <code>&lt;tfoot&gt;</code> or <code>&lt;tbody&gt;</code> element)<br>
-All <code>row</code>s in this <code>section</code> are selected.</li>
-</ul><p>In any cases, the nested <code>table</code> (<code>table</code> that is included in current target) is excluded (If part of the nested <code>table</code> is target too, of course it is included).</p>
+<li><strong><code>section</code></strong> (<code>&lt;thead&gt;</code>, <code>&lt;tfoot&gt;</code> or <code>&lt;tbody&gt;</code> element)<br>All <code>row</code>s in this <code>section</code> are selected.</li>
+</ul>
 
-<h3>
-<a name="rowscells" class="anchor" href="#rowscells"><span class="octicon octicon-link"></span></a><code>rowsCells</code>
-</h3>
+<p>In any cases, the nested <code>table</code> (<code>table</code> that is included in current target) is excluded (If part of the nested <code>table</code> is target too, of course it is included).</p>
 
-<div class="highlight highlight-js"><pre><span class="nx">cells</span> <span class="o">=</span> <span class="nx">target</span><span class="p">.</span><span class="nx">getTable</span><span class="p">(</span><span class="s1">'rowsCells'</span><span class="p">)</span>
-</pre></div>
-
+<h3 id="rowscells"><code>rowsCells</code></h3>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">cells</span> <span class="o">=</span> <span class="nx">target</span><span class="p">.</span><span class="nx">getTable</span><span class="p">(</span><span class="s1">&#39;rowsCells&#39;</span><span class="p">)</span>
+</code></pre></div>
 <p>Return a jQuery object that includes zero or more <code>cell</code> (<code>&lt;td&gt;</code> or <code>&lt;th&gt;</code>) elements that is included in all <code>row</code>s that selected by same way as <code>rows</code> method. The returned <code>cells</code> is one jQuery object that includes all of those.<br><em>(If you want to do something to each <code>row</code>s (you want to do nothing to all <code>cell</code>s in <code>rows</code> together), use <code>rows</code> method.)</em></p>
 
 <p>This is not the same as merged all <code>cell</code>s that is returned by <code>rows</code> method, <code>rowsCells</code> method returns unique <code>cell</code>s, duplicated elements are excluded.</p>
 
-<h3>
-<a name="cols" class="anchor" href="#cols"><span class="octicon octicon-link"></span></a><code>cols</code>
-</h3>
-
-<div class="highlight highlight-js"><pre><span class="nx">cols</span> <span class="o">=</span> <span class="nx">target</span><span class="p">.</span><span class="nx">getTable</span><span class="p">(</span><span class="s1">'cols'</span><span class="p">)</span>
-</pre></div>
-
-<p>Return an Array that includes zero or more <code>col</code>s. The <code>col</code> is a jQuery object that includes zero or more <code>cell</code> (<code>&lt;td&gt;</code> or <code>&lt;th&gt;</code>) elements that is positioned on a vertical line. The <code>cell</code>s in the <code>col</code> are sorted by position as from top to bottom, regardless of HTML source order. For example, <code>col.eq(0)</code> is uppermost <code>cell</code> like header.<br><em>(If you want to do something to all <code>cell</code>s in <code>cols</code> together (you want to do nothing to each <code>col</code>s), use <code>colsCells</code> method.)</em><br>
-The elements are selected according to the each elements that is included in current target jQuery object. The returned <code>cols</code> is one Array that includes all of those.</p>
+<h3 id="cols"><code>cols</code></h3>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">cols</span> <span class="o">=</span> <span class="nx">target</span><span class="p">.</span><span class="nx">getTable</span><span class="p">(</span><span class="s1">&#39;cols&#39;</span><span class="p">)</span>
+</code></pre></div>
+<p>Return an Array that includes zero or more <code>col</code>s. The <code>col</code> is a jQuery object that includes zero or more <code>cell</code> (<code>&lt;td&gt;</code> or <code>&lt;th&gt;</code>) elements that is positioned on a vertical line. The <code>cell</code>s in the <code>col</code> are sorted by position as from top to bottom, regardless of HTML source order. For example, <code>col.eq(0)</code> is uppermost <code>cell</code> like header.<br><em>(If you want to do something to all <code>cell</code>s in <code>cols</code> together (you want to do nothing to each <code>col</code>s), use <code>colsCells</code> method.)</em><br>The elements are selected according to the each elements that is included in current target jQuery object. The returned <code>cols</code> is one Array that includes all of those.</p>
 
 <p>An element that is included in current target jQuery object is:</p>
 
 <ul>
-<li>
-<strong><code>table</code>, <code>row</code>, <code>section</code></strong> (<code>&lt;table&gt;</code>, <code>&lt;tr&gt;</code>, <code>&lt;thead&gt;</code>, <code>&lt;tfoot&gt;</code> or <code>&lt;tbody&gt;</code> element)<br>
-All <code>col</code>s in this <code>table</code> are selected.</li>
-<li>
-<strong><code>cell</code></strong> (<code>&lt;td&gt;</code> or <code>&lt;th&gt;</code> element)<br>
-All <code>col</code>s that include this <code>cell</code> (i.e. vertical lines that pass through this <code>cell</code>) are selected.<br><em>(If you want both <code>rows</code> and <code>cols</code> of <code>cell</code>, use <code>xCells</code> method.)</em><br>
-Example:<br>
-</li>
-</ul><div class="highlight highlight-js"><pre><span class="kd">var</span> <span class="nx">hl</span><span class="p">;</span> <span class="c1">// keep to restore</span>
-<span class="nx">$</span><span class="p">(</span><span class="s1">'td'</span><span class="p">).</span><span class="nx">hover</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
-  <span class="nx">hl</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="k">this</span><span class="p">).</span><span class="nx">getTable</span><span class="p">(</span><span class="s1">'cols'</span><span class="p">)[</span><span class="mi">0</span><span class="p">].</span><span class="nx">addClass</span><span class="p">(</span><span class="s1">'highlight'</span><span class="p">);</span>
+<li><strong><code>table</code>, <code>row</code>, <code>section</code></strong> (<code>&lt;table&gt;</code>, <code>&lt;tr&gt;</code>, <code>&lt;thead&gt;</code>, <code>&lt;tfoot&gt;</code> or <code>&lt;tbody&gt;</code> element)<br>All <code>col</code>s in this <code>table</code> are selected.</li>
+<li><strong><code>cell</code></strong> (<code>&lt;td&gt;</code> or <code>&lt;th&gt;</code> element)<br>All <code>col</code>s that include this <code>cell</code> (i.e. vertical lines that pass through this <code>cell</code>) are selected.<br><em>(If you want both <code>rows</code> and <code>cols</code> of <code>cell</code>, use <code>xCells</code> method.)</em><br>Example:</li>
+</ul>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">hl</span><span class="p">;</span> <span class="c1">// keep to restore</span>
+<span class="nx">$</span><span class="p">(</span><span class="s1">&#39;td&#39;</span><span class="p">).</span><span class="nx">hover</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+  <span class="nx">hl</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="k">this</span><span class="p">).</span><span class="nx">getTable</span><span class="p">(</span><span class="s1">&#39;cols&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">].</span><span class="nx">addClass</span><span class="p">(</span><span class="s1">&#39;highlight&#39;</span><span class="p">);</span>
 <span class="p">},</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
-  <span class="nx">hl</span><span class="p">.</span><span class="nx">removeClass</span><span class="p">(</span><span class="s1">'highlight'</span><span class="p">);</span>
+  <span class="nx">hl</span><span class="p">.</span><span class="nx">removeClass</span><span class="p">(</span><span class="s1">&#39;highlight&#39;</span><span class="p">);</span>
 <span class="p">});</span>
-</pre></div>
-
+</code></pre></div>
 <p>In any cases, the nested <code>table</code> (<code>table</code> that is included in current target) is excluded (If part of the nested <code>table</code> is target too, of course it is included).</p>
 
-<!-- ======== sample -->
-<p class="caption">Temperature (degree Celsius)</p><!-- caption FIrefox bug -->
-<table class="sample-b" id="sample-6">
+<!-- include "sample_05.html" -->
+<!-- ================ sample -->
+<div class="sample-caption">Temperature (degree Celsius)</div><!-- caption Firefox bug -->
+<table class="sample-b" id="sample-05">
   <tr><th></th><th>Jan</th><th>Feb</th><th>Mar</th><th>Apr</th><th>May</th><th>Jun</th><th>Jul</th><th>Aug</th><th>Sep</th><th>Oct</th><th>Nov</th><th>Dec</th></tr>
   <tr><th>City-A</th><td rowspan="2">3.2</td><td>4.6</td><td>5.5</td><td>8.1</td><td>16.6</td><td>18.7</td><td>20.2</td><td rowspan="2">25.1</td><td>21.2</td><td>15.6</td><td>10.6</td><td>6.9</td></tr>
   <tr><th>City-B</th><td>4.8</td><td>6.1</td><td>10.2</td><td colspan="2">16.7</td><td>23.7</td><td>22.0</td><td rowspan="2">17.6</td><td>11.1</td><td>7.1</td></tr>
@@ -335,11 +328,13 @@ Example:<br>
   <tr><th>City-E</th><td>6.7</td><td rowspan="2">9.2</td><td colspan="2">19.1</td><td>25.4</td><td>29.2</td><td>17.9</td><td rowspan="2">17.3</td><td rowspan="2">9.3</td></tr>
   <tr><th>City-F</th><td colspan="2">6.8</td><td>15.4</td><td colspan="2">19.3</td><td>26.2</td><td>29.1</td><td>24.1</td><td>18.6</td></tr>
 </table>
-<div class="label" id="label-6" style="width: 20em;"></div>
+<div class="sample-label" id="sample-05-label"></div>
+
 <script>
 $(function() {
-  var hl, hlrow, hlcol, label = $('#label-6');
-  $('#sample-6 td').hover(function() {
+
+  var hl, hlrow, hlcol, label = $('#sample-05-label');
+  $('#sample-05 td').hover(function() {
     hl = $(this).addClass('hl');
     hlrow = $($.map(hl.getTable('rows'), function(row) { return row.get(0); })).addClass('hlrow');
     hlcol = $($.map(hl.getTable('cols'), function(col) { return col.get(0); })).addClass('hlcol');
@@ -353,80 +348,59 @@ $(function() {
     hlrow.removeClass('hlrow');
     label.text('');
   });
-})
+
+});
 </script>
-<!-- ======== /sample -->
+<!-- ================ /sample -->
+<!-- /include "sample_05.html" -->
 
-<h3>
-<a name="colscells" class="anchor" href="#colscells"><span class="octicon octicon-link"></span></a><code>colsCells</code>
-</h3>
-
-<div class="highlight highlight-js"><pre><span class="nx">cells</span> <span class="o">=</span> <span class="nx">target</span><span class="p">.</span><span class="nx">getTable</span><span class="p">(</span><span class="s1">'colsCells'</span><span class="p">)</span>
-</pre></div>
-
+<h3 id="colscells"><code>colsCells</code></h3>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">cells</span> <span class="o">=</span> <span class="nx">target</span><span class="p">.</span><span class="nx">getTable</span><span class="p">(</span><span class="s1">&#39;colsCells&#39;</span><span class="p">)</span>
+</code></pre></div>
 <p>Return a jQuery object that includes zero or more <code>cell</code> (<code>&lt;td&gt;</code> or <code>&lt;th&gt;</code>) elements that is included in all <code>col</code>s that selected by same way as <code>cols</code> method. The returned <code>cells</code> is one jQuery object that includes all of those.<br><em>(If you want to do something to each <code>col</code>s (you want to do nothing to all <code>cell</code>s in <code>cols</code> together), use <code>cols</code> method.)</em></p>
 
 <p>This is not the same as merged all <code>cell</code>s that is returned by <code>cols</code> method, <code>colsCells</code> method returns unique <code>cell</code>s, duplicated elements are excluded.</p>
 
-<h3>
-<a name="cells" class="anchor" href="#cells"><span class="octicon octicon-link"></span></a><code>cells</code>
-</h3>
-
-<div class="highlight highlight-js"><pre><span class="nx">cells</span> <span class="o">=</span> <span class="nx">target</span><span class="p">.</span><span class="nx">getTable</span><span class="p">(</span><span class="s1">'cells'</span><span class="p">)</span>
-</pre></div>
-
+<h3 id="cells"><code>cells</code></h3>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">cells</span> <span class="o">=</span> <span class="nx">target</span><span class="p">.</span><span class="nx">getTable</span><span class="p">(</span><span class="s1">&#39;cells&#39;</span><span class="p">)</span>
+</code></pre></div>
 <p>Return a jQuery object that includes zero or more <code>cell</code> (<code>&lt;td&gt;</code> or <code>&lt;th&gt;</code>) elements. The elements are selected according to the each elements that is included in current target jQuery object. The returned <code>cells</code> is one jQuery object that includes all of those.</p>
 
 <p>An element that is included in current target jQuery object is:</p>
 
 <ul>
-<li>
-<strong><code>table</code></strong> (<code>&lt;table&gt;</code> element)<br>
-All <code>cell</code>s in this <code>table</code> are selected.</li>
-<li>
-<strong><code>row</code></strong> (<code>&lt;tr&gt;</code> element)<br>
-All <code>cell</code>s in this <code>row</code> are selected.<br>
-This is not the same as <code>cell</code> elements in <code>&lt;tr&gt;</code> element, which includes <code>cell</code>s that is extended by <code>rowspan</code> in previous <code>&lt;tr&gt;</code>.<br>
-Example:<br>
-</li>
-</ul><div class="highlight highlight-js"><pre><span class="nx">$</span><span class="p">(</span><span class="s1">'#targetRow'</span><span class="p">).</span><span class="nx">getTable</span><span class="p">(</span><span class="s1">'cells'</span><span class="p">).</span><span class="nx">css</span><span class="p">(</span><span class="s1">'backgroundColor'</span><span class="p">,</span> <span class="s1">'blue'</span><span class="p">);</span>
-</pre></div>
-
+<li><strong><code>table</code></strong> (<code>&lt;table&gt;</code> element)<br>All <code>cell</code>s in this <code>table</code> are selected.</li>
+<li><strong><code>row</code></strong> (<code>&lt;tr&gt;</code> element)<br>All <code>cell</code>s in this <code>row</code> are selected.<br>This is not the same as <code>cell</code> elements in <code>&lt;tr&gt;</code> element, which includes <code>cell</code>s that is extended by <code>rowspan</code> in previous <code>&lt;tr&gt;</code>.<br>Example:</li>
+</ul>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">$</span><span class="p">(</span><span class="s1">&#39;#targetRow&#39;</span><span class="p">).</span><span class="nx">getTable</span><span class="p">(</span><span class="s1">&#39;cells&#39;</span><span class="p">).</span><span class="nx">css</span><span class="p">(</span><span class="s1">&#39;backgroundColor&#39;</span><span class="p">,</span> <span class="s1">&#39;blue&#39;</span><span class="p">);</span>
+</code></pre></div>
 <ul>
-<li>
-<strong><code>cell</code></strong> (<code>&lt;td&gt;</code> or <code>&lt;th&gt;</code> element)<br>
-This <code>cell</code> itself is selected.</li>
-<li>
-<strong><code>section</code></strong> (<code>&lt;thead&gt;</code>, <code>&lt;tfoot&gt;</code> or <code>&lt;tbody&gt;</code> element)<br>
-All <code>cell</code>s in this <code>section</code> are selected.</li>
-</ul><p>In any cases, the nested <code>table</code> (<code>table</code> that is included in current target) is excluded (If part of the nested <code>table</code> is target too, of course it is included).</p>
+<li><strong><code>cell</code></strong> (<code>&lt;td&gt;</code> or <code>&lt;th&gt;</code> element)<br>This <code>cell</code> itself is selected.</li>
+<li><strong><code>section</code></strong> (<code>&lt;thead&gt;</code>, <code>&lt;tfoot&gt;</code> or <code>&lt;tbody&gt;</code> element)<br>All <code>cell</code>s in this <code>section</code> are selected.</li>
+</ul>
 
-<h3>
-<a name="xcells" class="anchor" href="#xcells"><span class="octicon octicon-link"></span></a><code>xCells</code>
-</h3>
+<p>In any cases, the nested <code>table</code> (<code>table</code> that is included in current target) is excluded (If part of the nested <code>table</code> is target too, of course it is included).</p>
 
-<div class="highlight highlight-js"><pre><span class="nx">cells</span> <span class="o">=</span> <span class="nx">target</span><span class="p">.</span><span class="nx">getTable</span><span class="p">(</span><span class="s1">'xCells'</span><span class="p">)</span>
-</pre></div>
-
-<p>Return a jQuery object that includes zero or more <code>cell</code> (<code>&lt;td&gt;</code> or <code>&lt;th&gt;</code>) elements that is positioned on cross line (horizontal line and vertical line) that pass through the each elements that is included in current target jQuery object. The returned <code>cells</code> is one jQuery object that includes all of those. The first <code>cell</code> of that <code>cells</code> is current target. i.e. <code>cells.eq(0)</code> is a <code>cell</code> on the cross point.<br>
-The elements that is not <code>cell</code> (<code>&lt;td&gt;</code> or <code>&lt;th&gt;</code>) are ignored.</p>
+<h3 id="xcells"><code>xCells</code></h3>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">cells</span> <span class="o">=</span> <span class="nx">target</span><span class="p">.</span><span class="nx">getTable</span><span class="p">(</span><span class="s1">&#39;xCells&#39;</span><span class="p">)</span>
+</code></pre></div>
+<p>Return a jQuery object that includes zero or more <code>cell</code> (<code>&lt;td&gt;</code> or <code>&lt;th&gt;</code>) elements that is positioned on cross line (horizontal line and vertical line) that pass through the each elements that is included in current target jQuery object. The returned <code>cells</code> is one jQuery object that includes all of those. The first <code>cell</code> of that <code>cells</code> is current target. i.e. <code>cells.eq(0)</code> is a <code>cell</code> on the cross point.<br>The elements that is not <code>cell</code> (<code>&lt;td&gt;</code> or <code>&lt;th&gt;</code>) are ignored.</p>
 
 <p>This is not the same as merged all <code>cell</code>s that is returned by <code>rows</code> method and <code>cols</code> method, <code>xCells</code> method returns unique <code>cell</code>s, duplicated elements are excluded.</p>
 
 <p>The nested <code>table</code> (<code>table</code> that is included in current target) is excluded (If part of the nested <code>table</code> is target too, of course it is included).</p>
 
-<p>Example:  </p>
-
-<div class="highlight highlight-js"><pre><span class="kd">var</span> <span class="nx">hl</span><span class="p">;</span> <span class="c1">// keep to restore</span>
-<span class="nx">$</span><span class="p">(</span><span class="s1">'td'</span><span class="p">).</span><span class="nx">hover</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
-  <span class="nx">hl</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="k">this</span><span class="p">).</span><span class="nx">getTable</span><span class="p">(</span><span class="s1">'xCells'</span><span class="p">).</span><span class="nx">addClass</span><span class="p">(</span><span class="s1">'highlight'</span><span class="p">);</span>
+<p>Example:</p>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">hl</span><span class="p">;</span> <span class="c1">// keep to restore</span>
+<span class="nx">$</span><span class="p">(</span><span class="s1">&#39;td&#39;</span><span class="p">).</span><span class="nx">hover</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+  <span class="nx">hl</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="k">this</span><span class="p">).</span><span class="nx">getTable</span><span class="p">(</span><span class="s1">&#39;xCells&#39;</span><span class="p">).</span><span class="nx">addClass</span><span class="p">(</span><span class="s1">&#39;highlight&#39;</span><span class="p">);</span>
 <span class="p">},</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
-  <span class="nx">hl</span><span class="p">.</span><span class="nx">removeClass</span><span class="p">(</span><span class="s1">'highlight'</span><span class="p">);</span>
+  <span class="nx">hl</span><span class="p">.</span><span class="nx">removeClass</span><span class="p">(</span><span class="s1">&#39;highlight&#39;</span><span class="p">);</span>
 <span class="p">});</span>
-</pre></div>
-
-<!-- ======== sample -->
-<table class="sample-b" id="sample-7">
+</code></pre></div>
+<!-- include "sample_06.html" -->
+<!-- ================ sample -->
+<table class="sample-b" id="sample-06">
   <tr><th></th><th>A</th><th>B</th><th>C</th><th>D</th><th>E</th><th>F</th><th>G</th><th>H</th><th>I</th></tr>
   <tr><th>1</th><td></td><td colspan="2"></td><td rowspan="3"></td><td></td><td></td><td></td><td></td><td></td></tr>
   <tr><th>2</th><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
@@ -434,70 +408,57 @@ The elements that is not <code>cell</code> (<code>&lt;td&gt;</code> or <code>&lt
   <tr><th>4</th><td rowspan="2"></td><td></td><td></td><td></td><td colspan="2" rowspan="2"></td><td></td><td></td><td></td></tr>
   <tr><th>5</th><td></td><td></td><td></td><td></td><td></td><td></td></tr>
 </table>
-<div class="label" id="label-7"></div>
+<div class="sample-label" id="sample-06-label"></div>
+
 <script>
 $(function() {
-  var hl, label = $('#label-7');
-  $('#sample-7 td').hover(function() {
+
+  var hl, label = $('#sample-06-label');
+  $('#sample-06 td').hover(function() {
     hl = $(this).getTable('xCells').addClass('hl');
     label.text(hl.length + ' cells');
   }, function() {
     hl.removeClass('hl');
     label.text('');
   });
-})
+
+});
 </script>
-<!-- ======== /sample -->
+<!-- ================ /sample -->
+<!-- /include "sample_06.html" -->
 
-<h3>
-<a name="table" class="anchor" href="#table"><span class="octicon octicon-link"></span></a><code>table</code>
-</h3>
-
-<div class="highlight highlight-js"><pre><span class="nx">table</span> <span class="o">=</span> <span class="nx">target</span><span class="p">.</span><span class="nx">getTable</span><span class="p">(</span><span class="s1">'table'</span><span class="p">)</span>
-</pre></div>
-
+<h3 id="table"><code>table</code></h3>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">table</span> <span class="o">=</span> <span class="nx">target</span><span class="p">.</span><span class="nx">getTable</span><span class="p">(</span><span class="s1">&#39;table&#39;</span><span class="p">)</span>
+</code></pre></div>
 <p>Return a jQuery object that includes zero or more <code>table</code> (<code>&lt;table&gt;</code>) elements. The <code>&lt;table&gt;</code> elements that is included in current target jQuery object, and the <code>&lt;table&gt;</code> elements that have <code>&lt;tr&gt;</code>, <code>&lt;td&gt;</code>, <code>&lt;th&gt;</code>, <code>&lt;thead&gt;</code>, <code>&lt;tfoot&gt;</code> or <code>&lt;tbody&gt;</code> elements that is included in current target jQuery object are selected. The returned <code>table</code> is one jQuery object that includes all of those (duplicated elements are excluded).</p>
 
-<h3>
-<a name="initialize" class="anchor" href="#initialize"><span class="octicon octicon-link"></span></a>Initialize</h3>
-
-<div class="highlight highlight-js"><pre><span class="nx">target</span><span class="p">.</span><span class="nx">getTable</span><span class="p">()</span>
-</pre></div>
-
-<p>Parse the table, and cache those data.<br>
-You usually don't need to call initialize method, because getTable parses it automatically when getTable met unknown table via other methods. And getTable caches those data, therefore parsing again is not needed.<br>
-The cases of initialize method is needed are:</p>
+<h3 id="initialize">Initialize</h3>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">target</span><span class="p">.</span><span class="nx">getTable</span><span class="p">()</span>
+</code></pre></div>
+<p>Parse the table, and cache those data.<br>You usually don&#39;t need to call initialize method, because getTable parses it automatically when getTable met unknown table via other methods. And getTable caches those data, therefore parsing again is not needed.<br>The cases of initialize method is needed are:</p>
 
 <ul>
 <li>You want to make preparations in advance.</li>
 <li>You changed structure of the table that was already parsed.</li>
-</ul><p>If the element that is included in current target jQuery object is <code>&lt;table&gt;</code>, that table is parsed. If element is part of the table (<code>&lt;tr&gt;</code>, <code>&lt;td&gt;</code>, <code>&lt;th&gt;</code>, <code>&lt;thead&gt;</code>, <code>&lt;tfoot&gt;</code> or <code>&lt;tbody&gt;</code>), the table that has those parts  is parsed.
+</ul>
+
+<p>If the element that is included in current target jQuery object is <code>&lt;table&gt;</code>, that table is parsed. If element is part of the table (<code>&lt;tr&gt;</code>, <code>&lt;td&gt;</code>, <code>&lt;th&gt;</code>, <code>&lt;thead&gt;</code>, <code>&lt;tfoot&gt;</code> or <code>&lt;tbody&gt;</code>), the table that has those parts  is parsed.
 i.e. these codes below are equals:</p>
-
-<div class="highlight highlight-js"><pre><span class="nx">$</span><span class="p">(</span><span class="s1">'table#table1'</span><span class="p">).</span><span class="nx">getTable</span><span class="p">();</span>
-<span class="nx">$</span><span class="p">(</span><span class="s1">'table#table1&gt;tbody:eq(0)'</span><span class="p">).</span><span class="nx">getTable</span><span class="p">();</span>
-<span class="nx">$</span><span class="p">(</span><span class="s1">'table#table1&gt;tbody:eq(0)&gt;tr:eq(0)'</span><span class="p">).</span><span class="nx">getTable</span><span class="p">();</span>
-<span class="nx">$</span><span class="p">(</span><span class="s1">'table#table1&gt;tbody:eq(0)&gt;tr:eq(0)&gt;td:eq(0)'</span><span class="p">).</span><span class="nx">getTable</span><span class="p">();</span>
-</pre></div>
-
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">$</span><span class="p">(</span><span class="s1">&#39;table#table1&#39;</span><span class="p">).</span><span class="nx">getTable</span><span class="p">();</span>
+<span class="nx">$</span><span class="p">(</span><span class="s1">&#39;table#table1&gt;tbody:eq(0)&#39;</span><span class="p">).</span><span class="nx">getTable</span><span class="p">();</span>
+<span class="nx">$</span><span class="p">(</span><span class="s1">&#39;table#table1&gt;tbody:eq(0)&gt;tr:eq(0)&#39;</span><span class="p">).</span><span class="nx">getTable</span><span class="p">();</span>
+<span class="nx">$</span><span class="p">(</span><span class="s1">&#39;table#table1&gt;tbody:eq(0)&gt;tr:eq(0)&gt;td:eq(0)&#39;</span><span class="p">).</span><span class="nx">getTable</span><span class="p">();</span>
+</code></pre></div>
 <p>getTable discern nested table correctly, therefore if <code>&lt;td&gt;</code> of only inner table is given, outer table is not parsed.</p>
 
-<h2>
-<a name="note" class="anchor" href="#note"><span class="octicon octicon-link"></span></a>Note</h2>
+<h2 id="note">Note</h2>
 
-<p>The cell extending by <code>colspan="0"</code> and <code>&lt;colgroup&gt;</code> is not supported. Now, browser that supports this is Firefox only.</p>
-      </section>
-    </div>
+<p>The cell extending by <code>colspan=&quot;0&quot;</code> and <code>&lt;colgroup&gt;</code> is not supported. Now, browser that supports this is Firefox only.</p>
 
-    <!-- FOOTER  -->
-    <div id="footer_wrap" class="outer">
-      <footer class="inner">
-        <p class="copyright">getTable maintained by <a href="https://github.com/anseki">anseki</a></p>
-        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
-      </footer>
-    </div>
+  </main>
+  <footer>
+    <p class="copyright">getTable maintained by <a href="https://github.com/anseki">anseki</a></p>
+  </footer>
 
-    
-
-  </body>
+</body>
 </html>
