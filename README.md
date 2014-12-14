@@ -50,7 +50,8 @@ The `cell` elements in this `row` are not the same as `cell` elements in `<tr>` 
 + **`cell`** (`<td>` or `<th>` element)  
 All `row`s that include this `cell` (i.e. horizontal lines that pass through this `cell`) are selected.  
 *(If you want both `rows` and `cols` of `cell`, use `xCells` method.)*  
-Example:  
+Example:
+
 ```js
 var hl; // keep to restore
 $('td').hover(function() {
@@ -92,7 +93,8 @@ All `col`s in this `table` are selected.
 + **`cell`** (`<td>` or `<th>` element)  
 All `col`s that include this `cell` (i.e. vertical lines that pass through this `cell`) are selected.  
 *(If you want both `rows` and `cols` of `cell`, use `xCells` method.)*  
-Example:  
+Example:
+
 ```js
 var hl; // keep to restore
 $('td').hover(function() {
@@ -130,7 +132,8 @@ All `cell`s in this `table` are selected.
 + **`row`** (`<tr>` element)  
 All `cell`s in this `row` are selected.  
 This is not the same as `cell` elements in `<tr>` element, which includes `cell`s that is extended by `rowspan` in previous `<tr>`.  
-Example:  
+Example:
+
 ```js
 $('#targetRow').getTable('cells').css('backgroundColor', 'blue');
 ```
@@ -154,7 +157,8 @@ This is not the same as merged all `cell`s that is returned by `rows` method and
 
 The nested `table` (`table` that is included in current target) is excluded (If part of the nested `table` is target too, of course it is included).
 
-Example:  
+Example:
+
 ```js
 var hl; // keep to restore
 $('td').hover(function() {
