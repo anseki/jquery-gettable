@@ -30,7 +30,7 @@ Load after jQuery.
 
 ## Methods
 
-### `rows`
+### rows
 
 ```js
 rows = target.getTable('rows')
@@ -65,7 +65,7 @@ All `row`s in this `section` are selected.
 
 In any cases, the nested `table` (`table` that is included in current target) is excluded (If part of the nested `table` is target too, of course it is included).
 
-### `rowsCells`
+### rowsCells
 
 ```js
 cells = target.getTable('rowsCells')
@@ -76,7 +76,7 @@ Return a jQuery object that includes zero or more `cell` (`<td>` or `<th>`) elem
 
 This is not the same as merged all `cell`s that is returned by `rows` method, `rowsCells` method returns unique `cell`s, duplicated elements are excluded.
 
-### `cols`
+### cols
 
 ```js
 cols = target.getTable('cols')
@@ -106,7 +106,7 @@ $('td').hover(function() {
 
 In any cases, the nested `table` (`table` that is included in current target) is excluded (If part of the nested `table` is target too, of course it is included).
 
-### `colsCells`
+### colsCells
 
 ```js
 cells = target.getTable('colsCells')
@@ -117,7 +117,7 @@ Return a jQuery object that includes zero or more `cell` (`<td>` or `<th>`) elem
 
 This is not the same as merged all `cell`s that is returned by `cols` method, `colsCells` method returns unique `cell`s, duplicated elements are excluded.
 
-### `cells`
+### cells
 
 ```js
 cells = target.getTable('cells')
@@ -144,7 +144,7 @@ All `cell`s in this `section` are selected.
 
 In any cases, the nested `table` (`table` that is included in current target) is excluded (If part of the nested `table` is target too, of course it is included).
 
-### `xCells`
+### xCells
 
 ```js
 cells = target.getTable('xCells')
@@ -168,7 +168,7 @@ $('td').hover(function() {
 });
 ```
 
-### `table`
+### table
 
 ```js
 table = target.getTable('table')
