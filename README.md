@@ -204,7 +204,3 @@ getTable discern nested table correctly, therefore if `<td>` of only inner table
 ## Note
 
 The cell extending by `colspan="0"` and `<colgroup>` is not supported. Now, browser that supports this is Firefox only.
-
-## History
- * 2014-09-15			v0.2.0			Add: `rowsCells` method and `colsCells` method.
- * 2014-09-12			v0.1.0			Initial release.
