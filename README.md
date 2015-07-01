@@ -1,12 +1,12 @@
 # getTable
 
-The simple jQuery Plugin for easy getting table cells that is positioned on horizontal line, vertical line or both lines that passes through the target cell.
+The simple jQuery Plugin for easy getting the table cells that are positioned on the horizontal line, the vertical line or both lines that pass through the target cell.
 
 **See <a href="http://anseki.github.io/jquery-gettable">DEMO</a>**
 
-+ getTable gets horizontal line (`row`) and vertical line (`col`) of table. And it gets cells that is positioned on those lines. The handling cells that is positioned on horizontal line is supported by `<tr>` HTML tag, but vertical line is not supported by HTML.
-+ The cells that is extended by `colspan`/`rowspan` are parsed correctly. More lines pass through the extended cells (i.e. those cells catch more cells), and those cells are positioned on more lines (i.e. those cells are caught by more cells).
-+ The horizontal line (`row`) and vertical line (`col`) are discerned. getTable returns a jQuery object (or Array of those), therefore you can do anything you want to those.
++ getTable gets the horizontal line (`row`) and the vertical line (`col`) of the table. And it gets cells that are positioned on those lines. The handling cells that are positioned on the horizontal line is supported by `<tr>` HTML tag, but the vertical line is not supported by the HTML.
++ The cells that are extended by `colspan`/`rowspan` are parsed correctly. More lines pass through the extended cells (i.e. those cells catch more cells), and those cells are positioned on more lines (i.e. those cells are caught by more cells).
++ The horizontal line (`row`) and the vertical line (`col`) are discerned. getTable returns a jQuery object (or Array of those), therefore you can do anything you want to those.
 + The table is parsed via DOM, it's fast, correctly, and those data are cached.
 
 ```js
@@ -16,7 +16,8 @@ rows = $('td#target').getTable('rows');
 // Get cols that include target cell.
 cols = $('td#target').getTable('cols');
 
-// Get cells that is included in cross line (rows and cols) of target cell, and style those.
+// Get cells that are included in the cross line (rows and cols) of target cell.
+// And style those.
 cells = $('td#target').getTable('xCells').css('backgroundColor', 'blue');
 ```
 
@@ -30,27 +31,30 @@ Load after jQuery.
 
 ## Methods
 
-### rows
+### `rows`
 
 ```js
 rows = target.getTable('rows')
 ```
 
-Return an Array that includes zero or more `row`s. The `row` is a jQuery object that includes zero or more `cell` (`<td>` or `<th>`) elements that is positioned on a horizontal line. The `cell`s in the `row` are sorted by position as from left to right, regardless of HTML source order. For example, `row.eq(0)` is leftmost `cell` like header.  
-*(If you want to do something to all `cell`s in `rows` together (you want to do nothing to each `row`s), use `rowsCells` method.)*  
-The elements are selected according to the each elements that is included in current target jQuery object. The returned `rows` is one Array that includes all of those.
+Return an Array that includes zero or more `row`s. The `row` is a jQuery object that includes zero or more `cell` (`<td>` or `<th>`) elements that are positioned on a horizontal line. The `cell`s in the `row` are sorted by position as from left to right, regardless of the HTML source order. For example, `row.eq(0)` is leftmost `cell` like the header.  
+*(If you want to do something to all `cell`s in `rows` together (you want to do nothing to each `row`), use [`rowsCells`](#rowscells) method.)*  
+The elements are selected according to the each element that is included in current target jQuery object. The returned `rows` is one Array that includes all of those.
 
 An element that is included in current target jQuery object is:
 
 + **`table`** (`<table>` element)  
+e.g. `$('table#target').getTable('rows')`  
 All `row`s in this `table` are selected.
 + **`row`** (`<tr>` element)  
+e.g. `$('tr#target').getTable('rows')`  
 This `row` itself is selected.  
-The `cell` elements in this `row` are not the same as `cell` elements in `<tr>` element, which includes `cell`s that is extended by `rowspan` in previous `<tr>`.
+The `cell` elements in this `row` are not the same as `cell` elements in `<tr>` element, which includes `cell`s that are extended by `rowspan` in previous `<tr>`.
 + **`cell`** (`<td>` or `<th>` element)  
+e.g. `$('td#target').getTable('rows')`  
 All `row`s that include this `cell` (i.e. horizontal lines that pass through this `cell`) are selected.  
-*(If you want both `rows` and `cols` of `cell`, use `xCells` method.)*  
-Example:
+*(If you want both `rows` and `cols` of `cell`, use [`xCells`](#xcells) method.)*  
+For example:
 
 ```js
 var hl; // keep to restore
@@ -60,40 +64,44 @@ $('td').hover(function() {
   hl.removeClass('highlight');
 });
 ```
+
 + **`section`** (`<thead>`, `<tfoot>` or `<tbody>` element)  
+e.g. `$('thead#target').getTable('rows')`  
 All `row`s in this `section` are selected.
 
 In any cases, the nested `table` (`table` that is included in current target) is excluded (If part of the nested `table` is target too, of course it is included).
 
-### rowsCells
+### `rowsCells`
 
 ```js
 cells = target.getTable('rowsCells')
 ```
 
-Return a jQuery object that includes zero or more `cell` (`<td>` or `<th>`) elements that is included in all `row`s that selected by same way as `rows` method. The returned `cells` is one jQuery object that includes all of those.  
-*(If you want to do something to each `row`s (you want to do nothing to all `cell`s in `rows` together), use `rows` method.)*
+Return a jQuery object that includes zero or more `cell` (`<td>` or `<th>`) elements that are included in all `row`s that selected by same way as [`rows`](#rows) method. The returned `cells` is one jQuery object that includes all of those.  
+*(If you want to do something to each `row` (you want to do nothing to all `cell`s in `rows` together), use [`rows`](#rows) method.)*
 
-This is not the same as merged all `cell`s that is returned by `rows` method, `rowsCells` method returns unique `cell`s, duplicated elements are excluded.
+This is not the same as merged all `cell`s that are returned by [`rows`](#rows) method, `rowsCells` method returns unique `cell`s, duplicated elements are excluded.
 
-### cols
+### `cols`
 
 ```js
 cols = target.getTable('cols')
 ```
 
-Return an Array that includes zero or more `col`s. The `col` is a jQuery object that includes zero or more `cell` (`<td>` or `<th>`) elements that is positioned on a vertical line. The `cell`s in the `col` are sorted by position as from top to bottom, regardless of HTML source order. For example, `col.eq(0)` is uppermost `cell` like header.  
-*(If you want to do something to all `cell`s in `cols` together (you want to do nothing to each `col`s), use `colsCells` method.)*  
-The elements are selected according to the each elements that is included in current target jQuery object. The returned `cols` is one Array that includes all of those.
+Return an Array that includes zero or more `col`s. The `col` is a jQuery object that includes zero or more `cell` (`<td>` or `<th>`) elements that are positioned on a vertical line. The `cell`s in the `col` are sorted by position as from top to bottom, regardless of the HTML source order. For example, `col.eq(0)` is uppermost `cell` like the header.  
+*(If you want to do something to all `cell`s in `cols` together (you want to do nothing to each `col`), use [`colsCells`](#colscells) method.)*  
+The elements are selected according to the each element that is included in current target jQuery object. The returned `cols` is one Array that includes all of those.
 
 An element that is included in current target jQuery object is:
 
 + **`table`, `row`, `section`** (`<table>`, `<tr>`, `<thead>`, `<tfoot>` or `<tbody>` element)  
+e.g. `$('thead#target').getTable('rows')`  
 All `col`s in this `table` are selected.
 + **`cell`** (`<td>` or `<th>` element)  
+e.g. `$('td#target').getTable('rows')`  
 All `col`s that include this `cell` (i.e. vertical lines that pass through this `cell`) are selected.  
-*(If you want both `rows` and `cols` of `cell`, use `xCells` method.)*  
-Example:
+*(If you want both `rows` and `cols` of `cell`, use [`xCells`](#xcells) method.)*  
+For example:
 
 ```js
 var hl; // keep to restore
@@ -106,58 +114,63 @@ $('td').hover(function() {
 
 In any cases, the nested `table` (`table` that is included in current target) is excluded (If part of the nested `table` is target too, of course it is included).
 
-### colsCells
+### `colsCells`
 
 ```js
 cells = target.getTable('colsCells')
 ```
 
-Return a jQuery object that includes zero or more `cell` (`<td>` or `<th>`) elements that is included in all `col`s that selected by same way as `cols` method. The returned `cells` is one jQuery object that includes all of those.  
-*(If you want to do something to each `col`s (you want to do nothing to all `cell`s in `cols` together), use `cols` method.)*
+Return a jQuery object that includes zero or more `cell` (`<td>` or `<th>`) elements that are included in all `col`s that selected by same way as [`cols`](#cols) method. The returned `cells` is one jQuery object that includes all of those.  
+*(If you want to do something to each `col` (you want to do nothing to all `cell`s in `cols` together), use [`cols`](#cols) method.)*
 
-This is not the same as merged all `cell`s that is returned by `cols` method, `colsCells` method returns unique `cell`s, duplicated elements are excluded.
+This is not the same as merged all `cell`s that are returned by [`cols`](#cols) method, `colsCells` method returns unique `cell`s, duplicated elements are excluded.
 
-### cells
+### `cells`
 
 ```js
 cells = target.getTable('cells')
 ```
 
-Return a jQuery object that includes zero or more `cell` (`<td>` or `<th>`) elements. The elements are selected according to the each elements that is included in current target jQuery object. The returned `cells` is one jQuery object that includes all of those.
+Return a jQuery object that includes zero or more `cell` (`<td>` or `<th>`) elements. The elements are selected according to the each element that is included in current target jQuery object. The returned `cells` is one jQuery object that includes all of those.
 
 An element that is included in current target jQuery object is:
 
 + **`table`** (`<table>` element)  
+e.g. `$('table#target').getTable('rows')`  
 All `cell`s in this `table` are selected.
 + **`row`** (`<tr>` element)  
+e.g. `$('tr#target').getTable('rows')`  
 All `cell`s in this `row` are selected.  
-This is not the same as `cell` elements in `<tr>` element, which includes `cell`s that is extended by `rowspan` in previous `<tr>`.  
-Example:
+This is not the same as `cell` elements in `<tr>` element, which includes `cell`s that are extended by `rowspan` in previous `<tr>`.  
+For example:
 
 ```js
 $('#targetRow').getTable('cells').css('backgroundColor', 'blue');
 ```
+
 + **`cell`** (`<td>` or `<th>` element)  
+e.g. `$('td#target').getTable('rows')`  
 This `cell` itself is selected.
 + **`section`** (`<thead>`, `<tfoot>` or `<tbody>` element)  
+e.g. `$('thead#target').getTable('rows')`  
 All `cell`s in this `section` are selected.
 
 In any cases, the nested `table` (`table` that is included in current target) is excluded (If part of the nested `table` is target too, of course it is included).
 
-### xCells
+### `xCells`
 
 ```js
 cells = target.getTable('xCells')
 ```
 
-Return a jQuery object that includes zero or more `cell` (`<td>` or `<th>`) elements that is positioned on cross line (horizontal line and vertical line) that pass through the each elements that is included in current target jQuery object. The returned `cells` is one jQuery object that includes all of those. The first `cell` of that `cells` is current target. i.e. `cells.eq(0)` is a `cell` on the cross point.  
-The elements that is not `cell` (`<td>` or `<th>`) are ignored.
+Return a jQuery object that includes zero or more `cell` (`<td>` or `<th>`) elements that are positioned on the cross line (horizontal line and vertical line) that pass through the each element that is included in current target jQuery object. The returned `cells` is one jQuery object that includes all of those. The first `cell` of that `cells` is current target. i.e. `cells.eq(0)` is a `cell` on the cross point.  
+The elements that are not `cell` (`<td>` or `<th>`) are ignored.
 
-This is not the same as merged all `cell`s that is returned by `rows` method and `cols` method, `xCells` method returns unique `cell`s, duplicated elements are excluded.
+This is not the same as merged all `cell`s that are returned by [`rows`](#rows) method and [`cols`](#cols) method, `xCells` method returns unique `cell`s, duplicated elements are excluded.
 
 The nested `table` (`table` that is included in current target) is excluded (If part of the nested `table` is target too, of course it is included).
 
-Example:
+For example:
 
 ```js
 var hl; // keep to restore
@@ -168,13 +181,13 @@ $('td').hover(function() {
 });
 ```
 
-### table
+### `table`
 
 ```js
 table = target.getTable('table')
 ```
 
-Return a jQuery object that includes zero or more `table` (`<table>`) elements. The `<table>` elements that is included in current target jQuery object, and the `<table>` elements that have `<tr>`, `<td>`, `<th>`, `<thead>`, `<tfoot>` or `<tbody>` elements that is included in current target jQuery object are selected. The returned `table` is one jQuery object that includes all of those (duplicated elements are excluded).
+Return a jQuery object that includes zero or more `table` (`<table>`) elements. The `<table>` elements that are included in current target jQuery object, and the `<table>` elements that have `<tr>`, `<td>`, `<th>`, `<thead>`, `<tfoot>` or `<tbody>` elements that are included in current target jQuery object are selected. The returned `table` is one jQuery object that includes all of those (duplicated elements are excluded).
 
 ### Initialize
 
@@ -183,13 +196,13 @@ target.getTable()
 ```
 
 Parse the table, and cache those data.  
-You usually don't need to call initialize method, because getTable parses it automatically when getTable met unknown table via other methods. And getTable caches those data, therefore parsing again is not needed.  
+You usually don't need to call initialize method, because getTable parses it automatically when getTable met the unknown table via other methods. And getTable caches those data, therefore parsing again is not needed.  
 The cases of initialize method is needed are:
 
 + You want to make preparations in advance.
-+ You changed structure of the table that was already parsed.
++ You changed the structure of the table that was already parsed.
 
-If the element that is included in current target jQuery object is `<table>`, that table is parsed. If element is part of the table (`<tr>`, `<td>`, `<th>`, `<thead>`, `<tfoot>` or `<tbody>`), the table that has those parts  is parsed.
+If the element that is included in current target jQuery object is `<table>`, that table is parsed. If the element is part of the table (`<tr>`, `<td>`, `<th>`, `<thead>`, `<tfoot>` or `<tbody>`), the table that has those parts is parsed.  
 i.e. these codes below are equals:
 
 ```js
@@ -199,8 +212,8 @@ $('table#table1>tbody:eq(0)>tr:eq(0)').getTable();
 $('table#table1>tbody:eq(0)>tr:eq(0)>td:eq(0)').getTable();
 ```
 
-getTable discern nested table correctly, therefore if `<td>` of only inner table is given, outer table is not parsed.
+getTable discern the nested table correctly, therefore if `<td>` of only the inner table is given, the outer table is not parsed.
 
 ## Note
 
-The cell extending by `colspan="0"` and `<colgroup>` is not supported. Now, browser that supports this is Firefox only.
+The cell extending by `colspan="0"` and `<colgroup>` is not supported. Now, the browser that supports this is Firefox only.
