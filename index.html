@@ -187,6 +187,65 @@ The horizontal line (<code>row</code>) and the vertical line (<code>col</code>) 
 </div>
 <!-- ================ /sample -->
 <!-- /include "sample_03_add.html" -->
+
+<!-- include "sample_07.html" -->
+<!-- ================ sample -->
+<div style="clear: both;">
+<table class="sample-b" id="sample-07">
+  <tr><th></th><th>Price</th><th>CPU</th><th>Screen</th><th>Weight</th></tr>
+  <tr><th>Machine-A</th><td>240 USD</td><td>1.33 GHz</td><td>11.6 in.</td><td>0.98 kg</td></tr>
+  <tr><th>Machine-B</th><td>246 USD</td><td>1.8 GHz</td><td>14 in.</td><td>1.94 kg</td></tr>
+  <tr><th>Machine-C</th><td>430 USD</td><td>2.2 GHz</td><td>15.6 in.</td><td>2.29 kg</td></tr>
+  <tr><th>Machine-D</th><td>281 USD</td><td>2.16 GHz</td><td>15.6 in.</td><td>2.5 kg</td></tr>
+  <tr><th>Machine-E</th><td>484 USD</td><td>2 GHz</td><td>15.6 in.</td><td>2.6 kg</td></tr>
+</table>
+
+<script>
+$(function() {
+
+  var hlcol, bars, barList = [], barWidth = 0,
+    cell1st = $('#sample-07 td:eq(0)');
+
+  cell1st.getTable('cols')[0].each(function() {
+    if (this.nodeName.toLowerCase() === 'td') {
+      barList.push($('<div />').appendTo($(this).getTable('rows')[0].eq(0)));
+    }
+  });
+  bars = $('#sample-07 div');
+  cell1st.getTable('rows')[0].each(function() {
+    if (this.nodeName.toLowerCase() === 'td') {
+      barWidth += $(this).outerWidth();
+    }
+  });
+
+  $('#sample-07 td').hover(function() {
+    var values = [], max = 0,
+      col = $(this).getTable('cols')[0];
+    col.filter(function() {
+      var that = $(this), value;
+      if (that.get(0).nodeName.toLowerCase() === 'td') {
+        value = parseFloat(that.text());
+        if (value > max) { max = value; }
+        values.push(value);
+        return true;
+      } else {
+        return false;
+      }
+    }).each(function(i) {
+      barList[i].css('width', (values[i] / max * barWidth) + 'px');
+    });
+    bars.css('display', 'block');
+    hlcol = col.addClass('hlcol');
+  }, function() {
+    hlcol.removeClass('hlcol');
+    bars.css('display', 'none');
+  });
+
+});
+</script>
+</div>
+<!-- ================ /sample -->
+<!-- /include "sample_07.html" -->
 </li>
 <li class="sample-col-row">
 <!-- include "sample_04.html" -->
