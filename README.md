@@ -95,10 +95,10 @@ The elements are selected according to the each element that is included in curr
 An element that is included in current target jQuery object is:
 
 + **`table`, `row`, `section`** (`<table>`, `<tr>`, `<thead>`, `<tfoot>` or `<tbody>` element)  
-e.g. `$('thead#target').getTable('rows')`  
+e.g. `$('thead#target').getTable('cols')`  
 All `col`s in this `table` are selected.
 + **`cell`** (`<td>` or `<th>` element)  
-e.g. `$('td#target').getTable('rows')`  
+e.g. `$('td#target').getTable('cols')`  
 All `col`s that include this `cell` (i.e. vertical lines that pass through this `cell`) are selected.  
 *(If you want both `rows` and `cols` of `cell`, use [`xCells`](#xcells) method.)*  
 For example:
@@ -136,10 +136,10 @@ Return a jQuery object that includes zero or more `cell` (`<td>` or `<th>`) elem
 An element that is included in current target jQuery object is:
 
 + **`table`** (`<table>` element)  
-e.g. `$('table#target').getTable('rows')`  
+e.g. `$('table#target').getTable('cells')`  
 All `cell`s in this `table` are selected.
 + **`row`** (`<tr>` element)  
-e.g. `$('tr#target').getTable('rows')`  
+e.g. `$('tr#target').getTable('cells')`  
 All `cell`s in this `row` are selected.  
 This is not the same as `cell` elements in `<tr>` element, which includes `cell`s that are extended by `rowspan` in previous `<tr>`.  
 For example:
@@ -149,10 +149,10 @@ $('#targetRow').getTable('cells').css('backgroundColor', 'blue');
 ```
 
 + **`cell`** (`<td>` or `<th>` element)  
-e.g. `$('td#target').getTable('rows')`  
+e.g. `$('td#target').getTable('cells')`  
 This `cell` itself is selected.
 + **`section`** (`<thead>`, `<tfoot>` or `<tbody>` element)  
-e.g. `$('thead#target').getTable('rows')`  
+e.g. `$('thead#target').getTable('cells')`  
 All `cell`s in this `section` are selected.
 
 In any cases, the nested `table` (`table` that is included in current target) is excluded (If part of the nested `table` is target too, of course it is included).
