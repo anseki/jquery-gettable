@@ -364,8 +364,8 @@ The table is parsed via DOM, it&#39;s fast, correctly, and those data are cached
 <p>An element that is included in current target jQuery object is:</p>
 
 <ul>
-<li><strong><code>table</code>, <code>row</code>, <code>section</code></strong> (<code>&lt;table&gt;</code>, <code>&lt;tr&gt;</code>, <code>&lt;thead&gt;</code>, <code>&lt;tfoot&gt;</code> or <code>&lt;tbody&gt;</code> element)<br>e.g. <code>$(&#39;thead#target&#39;).getTable(&#39;rows&#39;)</code><br>All <code>col</code>s in this <code>table</code> are selected.</li>
-<li><strong><code>cell</code></strong> (<code>&lt;td&gt;</code> or <code>&lt;th&gt;</code> element)<br>e.g. <code>$(&#39;td#target&#39;).getTable(&#39;rows&#39;)</code><br>All <code>col</code>s that include this <code>cell</code> (i.e. vertical lines that pass through this <code>cell</code>) are selected.<br><em>(If you want both <code>rows</code> and <code>cols</code> of <code>cell</code>, use <a href="#xcells"><code>xCells</code></a> method.)</em><br>For example:</li>
+<li><strong><code>table</code>, <code>row</code>, <code>section</code></strong> (<code>&lt;table&gt;</code>, <code>&lt;tr&gt;</code>, <code>&lt;thead&gt;</code>, <code>&lt;tfoot&gt;</code> or <code>&lt;tbody&gt;</code> element)<br>e.g. <code>$(&#39;thead#target&#39;).getTable(&#39;cols&#39;)</code><br>All <code>col</code>s in this <code>table</code> are selected.</li>
+<li><strong><code>cell</code></strong> (<code>&lt;td&gt;</code> or <code>&lt;th&gt;</code> element)<br>e.g. <code>$(&#39;td#target&#39;).getTable(&#39;cols&#39;)</code><br>All <code>col</code>s that include this <code>cell</code> (i.e. vertical lines that pass through this <code>cell</code>) are selected.<br><em>(If you want both <code>rows</code> and <code>cols</code> of <code>cell</code>, use <a href="#xcells"><code>xCells</code></a> method.)</em><br>For example:</li>
 </ul>
 <div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">hl</span><span class="p">;</span> <span class="c1">// keep to restore</span>
 <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;td&#39;</span><span class="p">).</span><span class="nx">hover</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
@@ -429,14 +429,14 @@ $(function() {
 <p>An element that is included in current target jQuery object is:</p>
 
 <ul>
-<li><strong><code>table</code></strong> (<code>&lt;table&gt;</code> element)<br>e.g. <code>$(&#39;table#target&#39;).getTable(&#39;rows&#39;)</code><br>All <code>cell</code>s in this <code>table</code> are selected.</li>
-<li><strong><code>row</code></strong> (<code>&lt;tr&gt;</code> element)<br>e.g. <code>$(&#39;tr#target&#39;).getTable(&#39;rows&#39;)</code><br>All <code>cell</code>s in this <code>row</code> are selected.<br>This is not the same as <code>cell</code> elements in <code>&lt;tr&gt;</code> element, which includes <code>cell</code>s that are extended by <code>rowspan</code> in previous <code>&lt;tr&gt;</code>.<br>For example:</li>
+<li><strong><code>table</code></strong> (<code>&lt;table&gt;</code> element)<br>e.g. <code>$(&#39;table#target&#39;).getTable(&#39;cells&#39;)</code><br>All <code>cell</code>s in this <code>table</code> are selected.</li>
+<li><strong><code>row</code></strong> (<code>&lt;tr&gt;</code> element)<br>e.g. <code>$(&#39;tr#target&#39;).getTable(&#39;cells&#39;)</code><br>All <code>cell</code>s in this <code>row</code> are selected.<br>This is not the same as <code>cell</code> elements in <code>&lt;tr&gt;</code> element, which includes <code>cell</code>s that are extended by <code>rowspan</code> in previous <code>&lt;tr&gt;</code>.<br>For example:</li>
 </ul>
 <div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">$</span><span class="p">(</span><span class="s1">&#39;#targetRow&#39;</span><span class="p">).</span><span class="nx">getTable</span><span class="p">(</span><span class="s1">&#39;cells&#39;</span><span class="p">).</span><span class="nx">css</span><span class="p">(</span><span class="s1">&#39;backgroundColor&#39;</span><span class="p">,</span> <span class="s1">&#39;blue&#39;</span><span class="p">);</span>
 </code></pre></div>
 <ul>
-<li><strong><code>cell</code></strong> (<code>&lt;td&gt;</code> or <code>&lt;th&gt;</code> element)<br>e.g. <code>$(&#39;td#target&#39;).getTable(&#39;rows&#39;)</code><br>This <code>cell</code> itself is selected.</li>
-<li><strong><code>section</code></strong> (<code>&lt;thead&gt;</code>, <code>&lt;tfoot&gt;</code> or <code>&lt;tbody&gt;</code> element)<br>e.g. <code>$(&#39;thead#target&#39;).getTable(&#39;rows&#39;)</code><br>All <code>cell</code>s in this <code>section</code> are selected.</li>
+<li><strong><code>cell</code></strong> (<code>&lt;td&gt;</code> or <code>&lt;th&gt;</code> element)<br>e.g. <code>$(&#39;td#target&#39;).getTable(&#39;cells&#39;)</code><br>This <code>cell</code> itself is selected.</li>
+<li><strong><code>section</code></strong> (<code>&lt;thead&gt;</code>, <code>&lt;tfoot&gt;</code> or <code>&lt;tbody&gt;</code> element)<br>e.g. <code>$(&#39;thead#target&#39;).getTable(&#39;cells&#39;)</code><br>All <code>cell</code>s in this <code>section</code> are selected.</li>
 </ul>
 
 <p>In any cases, the nested <code>table</code> (<code>table</code> that is included in current target) is excluded (If part of the nested <code>table</code> is target too, of course it is included).</p>
