@@ -2,7 +2,7 @@
 
 The simple jQuery Plugin for easy getting the table cells that are positioned on the horizontal line, the vertical line or both lines that pass through the target cell.
 
-[![ss-01](ss-01.gif)](http://anseki.github.io/jquery-gettable/)
+[![ss-01](ss-01.gif)](http://anseki.github.io/jquery-gettable/)  
 [![ss-02](ss-02.gif)](http://anseki.github.io/jquery-gettable/)
 
 **See <a href="http://anseki.github.io/jquery-gettable/">DEMO</a>**
