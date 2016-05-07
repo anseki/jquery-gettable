@@ -2,6 +2,9 @@
 
 The simple jQuery Plugin for easy getting the table cells that are positioned on the horizontal line, the vertical line or both lines that pass through the target cell.
 
+[![ss-01](ss-01.gif)](http://anseki.github.io/jquery-gettable/)
+[![ss-02](ss-02.gif)](http://anseki.github.io/jquery-gettable/)
+
 **See <a href="http://anseki.github.io/jquery-gettable/">DEMO</a>**
 
 + getTable gets the horizontal line (`row`) and the vertical line (`col`) of the table. And it gets cells that are positioned on those lines. The handling cells that are positioned on the horizontal line is supported by `<tr>` HTML tag, but the vertical line is not supported by the HTML.
