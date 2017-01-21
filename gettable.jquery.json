@@ -17,9 +17,9 @@
   "dependencies": {
     "jquery": ">=1.8"
   },
-  "homepage": "http://anseki.github.io/jquery-gettable/",
-  "docs": "http://anseki.github.io/jquery-gettable/",
-  "download": "http://anseki.github.io/jquery-gettable/",
+  "homepage": "https://anseki.github.io/jquery-gettable/",
+  "docs": "https://anseki.github.io/jquery-gettable/",
+  "download": "https://anseki.github.io/jquery-gettable/",
   "bugs": "https://github.com/anseki/jquery-gettable/issues",
   "licenses": "MIT",
   "author": {
