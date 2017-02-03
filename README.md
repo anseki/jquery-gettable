@@ -1,5 +1,7 @@
 # getTable
 
+[![npm](https://img.shields.io/npm/v/jquery-gettable.svg)](https://www.npmjs.com/package/jquery-gettable) [![GitHub issues](https://img.shields.io/github/issues/anseki/jquery-gettable.svg)](https://github.com/anseki/jquery-gettable/issues) [![David](https://img.shields.io/david/anseki/jquery-gettable.svg)](package.json) [![license](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE-MIT)
+
 The simple jQuery Plugin for easy getting the table cells that are positioned on the horizontal line, the vertical line or both lines that pass through the target cell.
 
 [![ss-01](ss-01.gif)](https://anseki.github.io/jquery-gettable/)  
