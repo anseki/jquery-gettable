@@ -2,7 +2,7 @@
  * jQuery.getTable
  * https://anseki.github.io/jquery-gettable/
  *
- * Copyright (c) 2015 anseki
+ * Copyright (c) 2017 anseki
  * Licensed under the MIT license.
  */
 
