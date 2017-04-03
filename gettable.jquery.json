@@ -1,6 +1,6 @@
 {
   "name": "gettable",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "title": "getTable",
   "description": "The simple jQuery Plugin for easy getting the table cells that are positioned on the horizontal line, the vertical line or both lines that pass through the target cell.",
   "keywords": [
@@ -15,7 +15,7 @@
     "td"
   ],
   "dependencies": {
-    "jquery": ">=1.8"
+    "jquery": ">=3.0"
   },
   "homepage": "https://anseki.github.io/jquery-gettable/",
   "docs": "https://anseki.github.io/jquery-gettable/",
