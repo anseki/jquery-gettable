@@ -16,6 +16,13 @@
     "tr",
     "td"
   ],
+  "main": "jquery.gettable.min.js",
+  "files": [
+    "jquery.gettable.min.js",
+    "bower.json",
+    "gettable.jquery.json",
+    "LICENSE-MIT"
+  ],
   "dependencies": {
     "jquery": ">=3.0"
   },
