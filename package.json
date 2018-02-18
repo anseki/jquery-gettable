@@ -1,6 +1,6 @@
 {
   "name": "jquery-gettable",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "title": "getTable",
   "description": "The simple jQuery Plugin for easy getting the table cells that are positioned on the horizontal line, the vertical line or both lines that pass through the target cell.",
   "keywords": [
