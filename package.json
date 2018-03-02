@@ -20,8 +20,7 @@
   "files": [
     "jquery.gettable.min.js",
     "bower.json",
-    "gettable.jquery.json",
-    "LICENSE-MIT"
+    "gettable.jquery.json"
   ],
   "dependencies": {
     "jquery": ">=3.0"
